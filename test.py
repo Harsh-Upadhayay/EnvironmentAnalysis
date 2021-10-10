@@ -1,24 +1,19 @@
 import pandas as pd
 import numpy as np
 import time
+
+
 start_time = time.time()
 
-h = pd.read_csv('GlobalLandTemperaturesByCity.csv')
+h = pd.read_csv(r'datasets\GlobalLandTemperaturesByCountry.csv')
 
 load_time = time.time() - start_time
 
 print("Load Time : --- %s seconds ---" % (load_time))
 
 
-
 while 1:
-        
-    load_time = time.time() - start_time
 
-    print("Load Time : --- %s seconds ---" % (load_time))
-
-
-    print("Print Time : --- %s seconds ---" % (time.time() - start_time - load_time))
     ch = int(input())
     if 1 == ch:
         print(h)
