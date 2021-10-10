@@ -5,7 +5,6 @@ __pycache__/
 
 # C extensions
 *.so
-datasets\GlobalLandTemperaturesByCity.csv
 # Distribution / packaging
 .Python
 build/
@@ -127,3 +126,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+datasets/GlobalLandTemperaturesByCity.csv
