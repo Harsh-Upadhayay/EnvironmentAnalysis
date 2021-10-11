@@ -1,12 +1,10 @@
 
-import pandas as Pd
+import pandas as pd
 import numpy as np
 import time
 import csv
-import matplotlib.pyplot as Plt
+import matplotlib.pyplot as plt
 
-
-start_time = time.time()
 
 
 def get_Temperature_Graph():
@@ -39,15 +37,30 @@ def get_Temperature_Graph():
         print("Total Data of ",Country,"is ",Count)
     File.close()
 
-    Plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 12)
-    Plt.show()
+    plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 8)
+    plt.show()
 
+
+def TemperaturesByState():
+    df = pd.read_csv('datasets/GlobalTemperatures.csv')
+    df.dropna(inplace=True)
+    df.sort_values(by=['dt'])
+    dfJan = df[df['dt'].str.contains('-01-')]
+    dfMay = df[df['dt'].str.contains('-05-')]
+    dfJan.plot(x = 'dt', y = 'LandMaxTemperature')
+    dfMay.plot(x = 'dt', y = 'LandMaxTemperature')
+
+    plt.show()
+    print(df)
+
+
+
+start_time = time.time()
 
 get_Temperature_Graph()
 
-#print(Year)
-
 load_time = time.time() - start_time
+
 print("Load Time : --- %s seconds ---" % (load_time))
 
 
