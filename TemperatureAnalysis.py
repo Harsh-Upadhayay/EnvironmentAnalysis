@@ -1,8 +1,15 @@
+from typing import DefaultDict
 import pandas as pd
 import numpy as np
 import time
 import csv
 import matplotlib.pyplot as plt
+
+
+months = {'January':'-01-', 'February':'-02-', 'March'    :'-03-',
+          'April'  :'-04-', 'May'     :'-05-', 'June'     :'-06-',
+          'July'   :'-07-', 'August'  :'-08-', 'September':'-09-',
+          'October':'-10-', 'November':'-11-', 'December' :'-12-'}
 
 
 
@@ -46,11 +53,6 @@ def TemperaturesByState(state, month, dateStart = '1800-01-01', dateEnd = '2010-
     df.dropna(inplace=True)
     df.sort_values(by=['dt'])
 
-    months = {'January':'-01-', 'February':'-02-', 'March'    :'-03-',
-              'April'  :'-04-', 'May'     :'-05-', 'June'     :'-06-',
-              'July'   :'-07-', 'August'  :'-08-', 'September':'-09-',
-              'October':'-10-', 'November':'-11-', 'December' :'-12-'}
-
     df = df[df['State'].str.contains(state)]
     df = df[df['dt'].between(dateStart, dateEnd)]
 
@@ -60,16 +62,53 @@ def TemperaturesByState(state, month, dateStart = '1800-01-01', dateEnd = '2010-
     #plt.yticks([10,20,30,40,50,60,70])
     plt.show()
     print(df)
+    return df
 
+
+def TemperaturesByCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+
+    df = pd.read_csv('datasets/GlobalLandTemperaturesByMajorCity.csv')
+    df.dropna(inplace=True)
+    df.sort_values(by=['dt'])
+
+    df = df[df['City'].str.contains(city)]
+    df = df[df['dt'].between(dateStart, dateEnd)]
+
+    if df.empty :
+        TemperaturesBySpecificCity(city, month, dateStart, dateEnd)
+
+    df = df[df['dt'].str.contains(months[month])]
+    df.plot(x = 'dt', y = 'AverageTemperature')
+
+    #plt.yticks([10,20,30,40,50,60,70])
+    plt.show()
+    print(df)
+    return df
+
+
+def TemperaturesBySpecificCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+
+    df = pd.read_csv('datasets/GlobalLandTemperaturesByCity.csv')
+    df.dropna(inplace=True)
+    df.sort_values(by=['dt'])
+
+    df = df[df['City'].str.contains(city)]
+    df = df[df['dt'].between(dateStart, dateEnd)]
+
+    df = df[df['dt'].str.contains(months[month])]
+    df.plot(x = 'dt', y = 'AverageTemperature')
+
+    #plt.yticks([10,20,30,40,50,60,70])
+    plt.show()
+    print(df)
+    return df
 
 
 start_time = time.time()
 
-TemperaturesByState('Delhi', 'December')
+TemperaturesByCity('Nagpur', 'June')
 
-load_time = time.time() - start_time
-
-print("Load Time : --- %s seconds ---" % (load_time))
+print("Load Time : --- %s seconds ---" % (time.time() - start_time))
 
 
 
