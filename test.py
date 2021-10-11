@@ -38,6 +38,7 @@ def get_Temperature_Graph():
         print("Total Data of Month ",Month, "is ",Cmonth)
         print("Total Data of ",Country,"is ",Count)
     File.close()
+
     Plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 12)
     Plt.show()
 
@@ -46,9 +47,11 @@ get_Temperature_Graph()
 
 #print(Year)
 
-
-
 load_time = time.time() - start_time
-
 print("Load Time : --- %s seconds ---" % (load_time))
+
+
+
+
+
 
