@@ -40,24 +40,24 @@ def get_Temperature_Graph():
     plt.show()
 
 
-def TemperaturesByState():
+def TemperaturesByState(state, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
 
     df = pd.read_csv('datasets/GlobalLandTemperaturesByState.csv')
     df.dropna(inplace=True)
     df.sort_values(by=['dt'])
 
-    state = 'West Bengal'
-    dateStart = ''
-    dateEnd = ''
-    month = ['-01-','-02-','-03-','-04-','-05-','-06-','-07-','-08-','-09-','-010-','-011-','-012-']
+    months = {'January':'-01-', 'February':'-02-', 'March'    :'-03-',
+              'April'  :'-04-', 'May'     :'-05-', 'June'     :'-06-',
+              'July'   :'-07-', 'August'  :'-08-', 'September':'-09-',
+              'October':'-10-', 'November':'-11-', 'December' :'-12-'}
 
     df = df[df['State'].str.contains(state)]
+    df = df[df['dt'].between(dateStart, dateEnd)]
 
-    dfJan = df[df['dt'].str.contains(month[0])]
-    dfMay = df[df['dt'].str.contains(month[4])]
-    dfJan.plot(x = 'dt', y = 'AverageTemperature')
-    dfMay.plot(x = 'dt', y = 'AverageTemperature')
+    df = df[df['dt'].str.contains(months[month])]
+    df.plot(x = 'dt', y = 'AverageTemperature')
 
+    #plt.yticks([10,20,30,40,50,60,70])
     plt.show()
     print(df)
 
@@ -65,7 +65,7 @@ def TemperaturesByState():
 
 start_time = time.time()
 
-TemperaturesByState()
+TemperaturesByState('Delhi', 'December')
 
 load_time = time.time() - start_time
 
