@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 import time
@@ -42,13 +41,22 @@ def get_Temperature_Graph():
 
 
 def TemperaturesByState():
-    df = pd.read_csv('datasets/GlobalTemperatures.csv')
+
+    df = pd.read_csv('datasets/GlobalLandTemperaturesByState.csv')
     df.dropna(inplace=True)
     df.sort_values(by=['dt'])
-    dfJan = df[df['dt'].str.contains('-01-')]
-    dfMay = df[df['dt'].str.contains('-05-')]
-    dfJan.plot(x = 'dt', y = 'LandMaxTemperature')
-    dfMay.plot(x = 'dt', y = 'LandMaxTemperature')
+
+    state = 'West Bengal'
+    dateStart = ''
+    dateEnd = ''
+    month = ['-01-','-02-','-03-','-04-','-05-','-06-','-07-','-08-','-09-','-010-','-011-','-012-']
+
+    df = df[df['State'].str.contains(state)]
+
+    dfJan = df[df['dt'].str.contains(month[0])]
+    dfMay = df[df['dt'].str.contains(month[4])]
+    dfJan.plot(x = 'dt', y = 'AverageTemperature')
+    dfMay.plot(x = 'dt', y = 'AverageTemperature')
 
     plt.show()
     print(df)
@@ -57,7 +65,7 @@ def TemperaturesByState():
 
 start_time = time.time()
 
-get_Temperature_Graph()
+TemperaturesByState()
 
 load_time = time.time() - start_time
 
