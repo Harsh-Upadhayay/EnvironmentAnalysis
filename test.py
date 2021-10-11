@@ -1,12 +1,9 @@
-
-import pandas as Pd
+import pandas as pd
 import numpy as np
 import time
 import csv
-import matplotlib.pyplot as Plt
+import matplotlib.pyplot as plt
 
-
-start_time = time.time()
 
 
 def get_Temperature_Graph():
@@ -39,15 +36,39 @@ def get_Temperature_Graph():
         print("Total Data of ",Country,"is ",Count)
     File.close()
 
-    Plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 12)
-    Plt.show()
+    plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 8)
+    plt.show()
 
 
-get_Temperature_Graph()
+def TemperaturesByState(state, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
 
-#print(Year)
+    df = pd.read_csv('datasets/GlobalLandTemperaturesByState.csv')
+    df.dropna(inplace=True)
+    df.sort_values(by=['dt'])
+
+    months = {'January':'-01-', 'February':'-02-', 'March'    :'-03-',
+              'April'  :'-04-', 'May'     :'-05-', 'June'     :'-06-',
+              'July'   :'-07-', 'August'  :'-08-', 'September':'-09-',
+              'October':'-10-', 'November':'-11-', 'December' :'-12-'}
+
+    df = df[df['State'].str.contains(state)]
+    df = df[df['dt'].between(dateStart, dateEnd)]
+
+    df = df[df['dt'].str.contains(months[month])]
+    df.plot(x = 'dt', y = 'AverageTemperature')
+
+    #plt.yticks([10,20,30,40,50,60,70])
+    plt.show()
+    print(df)
+
+
+
+start_time = time.time()
+
+TemperaturesByState('Delhi', 'December')
 
 load_time = time.time() - start_time
+
 print("Load Time : --- %s seconds ---" % (load_time))
 
 
