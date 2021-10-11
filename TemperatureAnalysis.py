@@ -75,7 +75,7 @@ def TemperaturesByCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01
     df = df[df['dt'].between(dateStart, dateEnd)]
 
     if df.empty :
-        TemperaturesBySpecificCity(city, month, dateStart, dateEnd)
+        return TemperaturesBySpecificCity(city, month, dateStart, dateEnd)
 
     df = df[df['dt'].str.contains(months[month])]
     df.plot(x = 'dt', y = 'AverageTemperature')
@@ -106,7 +106,7 @@ def TemperaturesBySpecificCity(city, month, dateStart = '1800-01-01', dateEnd = 
 
 start_time = time.time()
 
-TemperaturesByCity('Nagpur', 'June')
+TemperaturesByCity('Agartala', 'June')
 
 print("Load Time : --- %s seconds ---" % (time.time() - start_time))
 
