@@ -47,7 +47,7 @@ def get_Temperature_Graph():
     plt.show()
 
 
-def TemperaturesByState(month, stateTuple, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+def TemperaturesByState(stateTuple, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
 
     if isinstance(stateTuple, str):
         stateTuple = (stateTuple,)
@@ -76,34 +76,66 @@ def TemperaturesByState(month, stateTuple, dateStart = '1800-01-01', dateEnd = '
     return retdf
 
 
-def TemperaturesByCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+def TemperaturesByCity(cityTuple, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+
+    if isinstance(cityTuple, str):
+        cityTuple = (cityTuple,)
 
     df = pd.read_csv('datasets/GlobalLandTemperaturesByMajorCity.csv')
+    
     df.dropna(inplace=True)
     df.sort_values(by=['dt'], inplace=True)
-
-    df = df[df['City'].str.contains(city)]
     df = df[df['dt'].between(dateStart, dateEnd)]
 
-    if df.empty :
-        return TemperaturesBySpecificCity(city, month, dateStart, dateEnd)
+    for city in cityTuple:
+        dftemp = df[df['City'].str.contains(city)]
+        if dftemp.empty :
+            return TemperaturesBySpecificCity(cityTuple, month, dateStart, dateEnd)    
 
-    df = df[df['dt'].str.contains(months[month])]
+    retdf = pd.DataFrame
+    firstIter = True
+
+    for city in cityTuple:
+        cur_df = df[df['City'].str.contains(city)]
+        cur_df = cur_df[cur_df['dt'].str.contains(months[month])]
+        
+        cur_df.drop(cur_df.columns[[2, 3, 4, 5, 6]], axis=1, inplace=True)
+        cur_df.rename(columns={'AverageTemperature' : city}, inplace=True)
+
+        if firstIter:
+            retdf = cur_df
+            firstIter = False
+        else:
+            retdf = retdf.merge(cur_df)
+
+    return retdf
 
 
-    return df
+def TemperaturesBySpecificCity(cityTuple, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
 
-
-def TemperaturesBySpecificCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+    if isinstance(cityTuple, str):
+        cityTuple = (cityTuple,)
 
     df = pd.read_csv('datasets/GlobalLandTemperaturesByCity.csv')
     df.dropna(inplace=True)
     df.sort_values(by=['dt'], inplace=True)
 
-    retdf = df[df['City'].str.contains(city)]
-    retdf = retdf[retdf['dt'].between(dateStart, dateEnd)]
-    retdf = retdf[retdf['dt'].str.contains(months[month])]
-    
+    retdf = pd.DataFrame
+    firstIter = True
+
+    for city in cityTuple:
+        cur_df = df[df['City'].str.contains(city)]
+        cur_df = cur_df[cur_df['dt'].str.contains(months[month])]
+        
+        cur_df.drop(cur_df.columns[[2, 3, 4, 5, 6]], axis=1, inplace=True)
+        cur_df.rename(columns={'AverageTemperature' : city}, inplace=True)
+
+        if firstIter:
+            retdf = cur_df
+            firstIter = False
+        else:
+            retdf = retdf.merge(cur_df)
+
     return retdf
 
 
@@ -126,14 +158,13 @@ def TemperaturesGlobally(month, dateStart = '1800-01-01', dateEnd = '2010-01-01'
 
 
 
-
 start_time = time.time()
 
 # df = pd.read_csv('datasets/GlobalLandTemperaturesByState.csv')
 # df = df[df['Country'].str.contains('India')]
 # print(df.State.unique())
 
-df = TemperaturesByState('June', ['Rajasthan', 'Uttraanchal'])
+df = TemperaturesByCity( ('Delhi', 'Nagpur'), 'June')
 df.plot(x = 'dt')
 plt.show()
 print(df)
