@@ -47,30 +47,31 @@ def get_Temperature_Graph():
     plt.show()
 
 
-def TemperaturesByState(month, *stateTuple, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+def TemperaturesByState(month, stateTuple, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+
+    if isinstance(stateTuple, str):
+        stateTuple = (stateTuple,)
 
     df = pd.read_csv('datasets/GlobalLandTemperaturesByState.csv')
     df.dropna(inplace=True)
     df.sort_values(by=['dt'], inplace=True)
+    df = df[df['dt'].between(dateStart, dateEnd)]
 
     retdf = pd.DataFrame
     firstIter = True
 
     for state in stateTuple:
         cur_df = df[df['State'].str.contains(state)]
-        cur_df = cur_df[cur_df['dt'].between(dateStart, dateEnd)]
         cur_df = cur_df[cur_df['dt'].str.contains(months[month])]
         
-        cur_df.drop(columns=['AverageTemperatureUncertainty', 'Country', 'State'], inplace=True)
+        cur_df.drop(cur_df.columns[[2, 3, 4]], axis=1, inplace=True)
         cur_df.rename(columns={'AverageTemperature' : state}, inplace=True)
-        
+
         if firstIter:
             retdf = cur_df
             firstIter = False
         else:
-            retdf = cur_df
-
-        cur_df = df
+            retdf = retdf.merge(cur_df)
 
     return retdf
 
@@ -88,11 +89,8 @@ def TemperaturesByCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01
         return TemperaturesBySpecificCity(city, month, dateStart, dateEnd)
 
     df = df[df['dt'].str.contains(months[month])]
-    # df.plot(x = 'dt', y = 'AverageTemperature')
 
-    #plt.yticks([10,20,30,40,50,60,70])
-    # plt.show()
-    # print(df)
+
     return df
 
 
@@ -106,10 +104,6 @@ def TemperaturesBySpecificCity(city, month, dateStart = '1800-01-01', dateEnd = 
     retdf = retdf[retdf['dt'].between(dateStart, dateEnd)]
     retdf = retdf[retdf['dt'].str.contains(months[month])]
     
-    # df.plot(x = 'dt', y = 'AverageTemperature')
-    #plt.yticks([10,20,30,40,50,60,70])
-    # plt.show()
-    # print(df)
     return retdf
 
 
@@ -139,8 +133,10 @@ start_time = time.time()
 # df = df[df['Country'].str.contains('India')]
 # print(df.State.unique())
 
-(TemperaturesByState('June', 'Rajasthan', 'Delhi')).plot(x = 'dt', y = 'Delhi')
+df = TemperaturesByState('June', ['Rajasthan', 'Uttraanchal'])
+df.plot(x = 'dt')
 plt.show()
+print(df)
 
 print("Load Time : --- %s seconds ---" % (time.time() - start_time))
 
