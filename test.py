@@ -40,6 +40,7 @@ def get_Temperature_Graph():
     File.close()
 
     Plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 12)
+    
     Plt.show()
 
 
