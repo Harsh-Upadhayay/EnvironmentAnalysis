@@ -47,66 +47,127 @@ def get_Temperature_Graph():
     plt.show()
 
 
-def TemperaturesByState(state, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+def TemperaturesByState(stateTuple, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+
+    if isinstance(stateTuple, str):
+        stateTuple = (stateTuple,)
 
     df = pd.read_csv('datasets/GlobalLandTemperaturesByState.csv')
     df.dropna(inplace=True)
-    df.sort_values(by=['dt'])
-
-    df = df[df['State'].str.contains(state)]
+    df.sort_values(by=['dt'], inplace=True)
     df = df[df['dt'].between(dateStart, dateEnd)]
 
-    df = df[df['dt'].str.contains(months[month])]
-    df.plot(x = 'dt', y = 'AverageTemperature')
+    retdf = pd.DataFrame
+    firstIter = True
 
-    #plt.yticks([10,20,30,40,50,60,70])
-    plt.show()
-    print(df)
-    return df
+    for state in stateTuple:
+        cur_df = df[df['State'].str.contains(state)]
+        cur_df = cur_df[cur_df['dt'].str.contains(months[month])]
+        
+        cur_df.drop(cur_df.columns[[2, 3, 4]], axis=1, inplace=True)
+        cur_df.rename(columns={'AverageTemperature' : state}, inplace=True)
+
+        if firstIter:
+            retdf = cur_df
+            firstIter = False
+        else:
+            retdf = retdf.merge(cur_df)
+
+    return retdf
 
 
-def TemperaturesByCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+def TemperaturesByCity(cityTuple, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+
+    if isinstance(cityTuple, str):
+        cityTuple = (cityTuple,)
 
     df = pd.read_csv('datasets/GlobalLandTemperaturesByMajorCity.csv')
+    
     df.dropna(inplace=True)
-    df.sort_values(by=['dt'])
-
-    df = df[df['City'].str.contains(city)]
+    df.sort_values(by=['dt'], inplace=True)
     df = df[df['dt'].between(dateStart, dateEnd)]
 
-    if df.empty :
-        return TemperaturesBySpecificCity(city, month, dateStart, dateEnd)
+    for city in cityTuple:
+        dftemp = df[df['City'].str.contains(city)]
+        if dftemp.empty :
+            return TemperaturesBySpecificCity(cityTuple, month, dateStart, dateEnd)    
 
-    df = df[df['dt'].str.contains(months[month])]
-    df.plot(x = 'dt', y = 'AverageTemperature')
+    retdf = pd.DataFrame
+    firstIter = True
 
-    #plt.yticks([10,20,30,40,50,60,70])
-    plt.show()
-    print(df)
-    return df
+    for city in cityTuple:
+        cur_df = df[df['City'].str.contains(city)]
+        cur_df = cur_df[cur_df['dt'].str.contains(months[month])]
+        
+        cur_df.drop(cur_df.columns[[2, 3, 4, 5, 6]], axis=1, inplace=True)
+        cur_df.rename(columns={'AverageTemperature' : city}, inplace=True)
+
+        if firstIter:
+            retdf = cur_df
+            firstIter = False
+        else:
+            retdf = retdf.merge(cur_df)
+
+    return retdf
 
 
-def TemperaturesBySpecificCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+def TemperaturesBySpecificCity(cityTuple, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+
+    if isinstance(cityTuple, str):
+        cityTuple = (cityTuple,)
 
     df = pd.read_csv('datasets/GlobalLandTemperaturesByCity.csv')
     df.dropna(inplace=True)
-    df.sort_values(by=['dt'])
+    df.sort_values(by=['dt'], inplace=True)
 
-    df = df[df['City'].str.contains(city)]
+    retdf = pd.DataFrame
+    firstIter = True
+
+    for city in cityTuple:
+        cur_df = df[df['City'].str.contains(city)]
+        cur_df = cur_df[cur_df['dt'].str.contains(months[month])]
+        
+        cur_df.drop(cur_df.columns[[2, 3, 4, 5, 6]], axis=1, inplace=True)
+        cur_df.rename(columns={'AverageTemperature' : city}, inplace=True)
+
+        if firstIter:
+            retdf = cur_df
+            firstIter = False
+        else:
+            retdf = retdf.merge(cur_df)
+
+    return retdf
+
+
+def TemperaturesGlobally(month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+
+    df = pd.read_csv('datasets/GlobalTemperatures.csv')
+    df.dropna(inplace=True)
+    df.sort_values(by=['dt'], inplace=True)
+    
     df = df[df['dt'].between(dateStart, dateEnd)]
 
     df = df[df['dt'].str.contains(months[month])]
-    df.plot(x = 'dt', y = 'AverageTemperature')
-
-    #plt.yticks([10,20,30,40,50,60,70])
-    plt.show()
-    print(df)
+    # df.plot()
+    
+    # plt.yticks([10,20,30,40,50,60,70])
+    # plt.show()
+    # print(df)
     return df
+
+
 
 
 start_time = time.time()
 
-TemperaturesByCity('Agartala', 'June')
+# df = pd.read_csv('datasets/GlobalLandTemperaturesByState.csv')
+# df = df[df['Country'].str.contains('India')]
+# print(df.State.unique())
+
+df = TemperaturesByCity( ('Delhi', 'Nagpur'), 'June')
+df.plot(x = 'dt')
+plt.show()
+print(df)
 
 print("Load Time : --- %s seconds ---" % (time.time() - start_time))
 
