@@ -87,11 +87,9 @@ def TemperaturesByCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01
 
 
 def TemperaturesBySpecificCity(city, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
-
     df = pd.read_csv('datasets/GlobalLandTemperaturesByCity.csv')
     df.dropna(inplace=True)
     df.sort_values(by=['dt'])
-
     df = df[df['City'].str.contains(city)]
     df = df[df['dt'].between(dateStart, dateEnd)]
 
