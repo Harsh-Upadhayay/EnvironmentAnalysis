@@ -104,7 +104,9 @@ def TemperaturesBySpecificCity(city, month, dateStart = '1800-01-01', dateEnd = 
 
 start_time = time.time()
 
-TemperaturesByCity('Agartala', 'June')
+#TemperaturesByCity('Agartala', 'June')
+
+get_Temperature_Graph()
 
 print("Load Time : --- %s seconds ---" % (time.time() - start_time))
 

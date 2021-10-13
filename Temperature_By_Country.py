@@ -36,7 +36,7 @@ def Get_Analysis_Country(Country ,  Month = 'May' , From_Date = '1743-11-01' , T
             New = NewFile
             Flag = 0
         else:
-            New = New.merge(NewFile)
+            New = New.merge(NewFile,how = 'outer')
     return New
 
 
@@ -48,5 +48,5 @@ print(File1)
 x = list(File1['Date'].str[:4])
 print(x)
 
-File1.plot(x = File1['Date'],subplots = True)
+File1.plot(x = 'Date' , subplots = True)
 Plt.show()
