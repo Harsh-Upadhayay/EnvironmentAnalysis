@@ -10,7 +10,7 @@ def get_City_Graph():
     Month = input("Enter the Month : ")
     Dict = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
             'July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
-    with open('/home/harshtripathi/Environmental_Analysis/EnviornmentAnalysis/datasets/GlobalLandTemperaturesByMajorCity.csv') as File:
+    with open('datasets/GlobalLandTemperaturesByMajorCity.csv') as File:
         File_Ptr = csv.reader(File)
         Flag,Citycount,monthCount = 0,0,0
         Year,Temp = [],[]
