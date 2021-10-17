@@ -21,7 +21,7 @@ def __setcitiesMap():
     citiesMap = df.set_index('Name')['ID'].to_dict()
 
 
-def TemperaturesByUScity(city, month = 0, day = 0, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+def TemperaturesByUScity(city, month = 0, day = 0, dateStart = '1700-01-01', dateEnd = '2010-01-01'):
 
     global citiesMap
     
@@ -41,18 +41,33 @@ def TemperaturesByUScity(city, month = 0, day = 0, dateStart = '1800-01-01', dat
     return df
 
 
-def TemperatureByUScities(cityTuple, month, dateStart = '1700-01-01', dateEnd = '2010-01-01'):
+def TemperaturesByUScities(cityTuple, month, day = 0, dateStart = '1700-01-01', dateEnd = '2010-01-01'):
     
-    if isinstance(cityTuple, 'str'):
-        return TemperaturesByUScity(cityTuple, month, dateStart, dateEnd)
+    if isinstance(cityTuple, str):
+        return TemperaturesByUScity(cityTuple, month, day, dateStart, dateEnd)
     
+    retdf = pd.DataFrame
+    firstIter = True
+
+ 
     for city in cityTuple:
-        TemperaturesByUScity(city, month, dateStart, dateEnd)
+        cur_df = TemperaturesByUScity(city, month, day, dateStart, dateEnd)
+        cur_df[city] = cur_df[['tmin', 'tmax']].mean(axis=1)
+        cur_df.drop(cur_df.columns[[1,2,3]], axis=1, inplace=True)
+           
+        if firstIter:
+            retdf = cur_df
+            firstIter = False
+        else:
+            retdf = retdf.merge(cur_df, how='outer')
+    
+    return retdf
 
 
 
-df = TemperaturesByUScity('NewYork', 'December', '01')
 
-df.plot(x='Date', y='tmin')
-#plt.show()
-print(df.head())
+df = TemperaturesByUScities(['NewYork', 'Wausau'], 'June', '01')
+
+df.plot(x='Date')
+plt.show()
+print(df)
