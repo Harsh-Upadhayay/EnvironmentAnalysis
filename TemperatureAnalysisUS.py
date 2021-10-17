@@ -28,7 +28,11 @@ def TemperaturesByUScity(city, month = 0, day = 0, dateStart = '1700-01-01', dat
     if 0 == citiesMap:
         __setcitiesMap()
 
-    df = pd.read_csv(dataPath + citiesMap[city] + '.csv')
+    try:
+        df = pd.read_csv(dataPath + citiesMap[city] + '.csv')
+    except:
+        return 0
+    
     df.drop(columns='Unnamed: 0', inplace=True)
     df = df[df['Date'].between(dateStart, dateEnd)]
     
@@ -37,7 +41,10 @@ def TemperaturesByUScity(city, month = 0, day = 0, dateStart = '1700-01-01', dat
     
     if day:
         df = df[df['Date'].str.contains('.-'+str(day),  regex=True)]
-    
+
+    df['tmax'] = df.apply(lambda x: (5/9)*(x['tmax'] - 32), axis=1) 
+    df['tmin'] = df.apply(lambda x: (5/9)*(x['tmin'] - 32), axis=1)
+        
     return df
 
 
@@ -66,7 +73,7 @@ def TemperaturesByUScities(cityTuple, month, day = 0, dateStart = '1700-01-01', 
 
 
 
-df = TemperaturesByUScities(['NewYork', 'Wausau'], 'June', '01')
+df = TemperaturesByUScities(['NewYork', 'Madison'], 'June', '02')
 
 df.plot(x='Date')
 plt.show()
