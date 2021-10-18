@@ -6,6 +6,8 @@ Third Semester IT-Workshop Project
 
 1). Analysis of Temperature change.  
 2). Temperature changes over a city , over a state , over a country , over a continent  , over Earth  
-3). Rainfall affeted due to temperature changes.  
-4). Concentration of gaseous pollutants over period of time ex So2 , No2 etc .  
-5). Inference as per trends in our data.  
+3). Rainfall Pattern affeted due to temperature changes , using precipitattion data.  
+4). Concentration of greenhouse gaeses over period of time ex Co2 , So2 , N2O etc .
+5). Smoothing the data so that a clear trend is visible.
+6). Making an Interface for our Analysis.
+7). Inference as per trends in our data.  
