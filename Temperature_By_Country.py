@@ -23,7 +23,7 @@ def Get_Analysis_Country(Country ,  Month = 'May' , From_Date = '1743-11-01' , T
 
     File.reset_index(drop = True , inplace = True)
     
-    New = []
+    New = Pd.DataFrame
     Flag = 1
 
     for Ptr in Country:
@@ -33,36 +33,24 @@ def Get_Analysis_Country(Country ,  Month = 'May' , From_Date = '1743-11-01' , T
         NewFile = NewFile.rename(columns = {'Avg_Temperature':Ptr})
         
         if(Flag == 1):
-            New.append(NewFile)
+            New = NewFile
             Flag = 0
         else:
-            New.append(NewFile)
-            #New = New.merge(NewFile,how = 'outer')
+            #New = New.merge(NewFile)
+            New = New.merge(NewFile)
     return New
 
 
 
     
-Lst = Get_Analysis_Country(['India','China','Russia'])
-File1 , File2 , File3 = Lst[0] , Lst[1] , Lst[2]
+File = Get_Analysis_Country(['India','China','Russia'])
 
+'''
 Year = list(File1['Date'].str[:4])
 Temp = list(File1['India'])
-print(Year)
+print(Year)'''
 
-
-for i in range(len(Year)):
-    Year[i] = int(Year[i])
-
-
-for i in range(len(Temp)):
-    Temp[i] = float(Temp[i])
-#print(Temp)
-
-for i in range(len(Year)):
-    print(Year[i]," --->  ",Temp[i])
-
-Plt.plot(Year, Temp, 'go--', linewidth = 2, markersize = 8)
+File.plot(x = 'Date', subplots = True)
 Plt.show()
 
 
