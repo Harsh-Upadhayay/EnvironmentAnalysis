@@ -69,7 +69,19 @@ def TemperatureByCountriesWBD(countryTuple, dateStart = 1700, dateEnd = 2100):
     return retdf
 
 
-df = TemperatureByCountriesWBD(['India', 'United States'])
-df.plot(x = 'Date', subplots=True)
+def TemperatureByStateWBD(country, stateTuple, dateStart = 1700, dateEnd = 2100):
+    
+    if isinstance(stateTuple, str):
+        stateTuple = (stateTuple,)
+    df = TemperatureByCountryWBD(country, dateStart, dateEnd)
+    
+    for state in df.columns:
+        if state not in stateTuple and state != 'Date':
+            df.drop(columns=state, inplace=True)
+
+    return df
+
+df = TemperatureByStateWBD('India', ['Assam', 'Goa', 'Delhi', 'Uttar pradesh'], 1989, 2010)
+df.plot(x = 'Date')
 plt.show()
 print(df)
