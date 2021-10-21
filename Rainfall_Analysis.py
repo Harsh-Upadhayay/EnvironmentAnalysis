@@ -10,7 +10,7 @@ def __setCountriesMap():
     Call only once
     """
     global Dict
-    with open("datasets\WhoDataBank\countriesCode.txt", "r") as file:
+    with open("datasets\WorldBankData\countriesCode.txt", "r") as file:
         data = file.readlines()
         for line in data:
                 word = line.split('^^^^^')
