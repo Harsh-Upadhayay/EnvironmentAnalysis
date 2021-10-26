@@ -36,7 +36,7 @@ def get_Temperature_Graph():
                         if(Lst[1] != ""):
                             Year.append(int(Str[:4]))
                             Avg_Temperature.append(float(Lst[1]))
-                            print("Date = ",Lst[0]," : Average_Temerature = ",Lst[1]," : Unceratinity = ",Lst[2]," : Country = ",Lst[3])
+                            print("Date = ",Lst[0]," : Average_Temperature = ",Lst[1]," : Uncertainty = ",Lst[2]," : Country = ",Lst[3])
                             Cmonth = Cmonth + 1
                     Count = Count + 1
         print("Total Data of Month ",Month, "is ",Cmonth)
