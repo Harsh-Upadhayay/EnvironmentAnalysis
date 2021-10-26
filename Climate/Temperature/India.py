@@ -15,11 +15,11 @@ def Temperature_Analysis_India(Month = 'May',Start_Year = 1901 , End_Year = 2016
     #print(File)
     return File 
 
-File = Temperature_Analysis_India()
 
-Mean = File[File.columns[1]].mean()
-File.plot(x = 'Year', color='blue', marker='o', linestyle='dashed',linewidth=2, markersize=12)
-Plt.axhline(y = Mean)
-Plt.title('Maximum Temperature')
-Plt.show()
+# File = Temperature_Analysis_India('September', 1970)
+# Mean = File[File.columns[1]].mean()
+# File.plot(x = 'Year', color='blue', marker='o', linestyle='dashed',linewidth=2, markersize=12)
+# Plt.axhline(y = Mean)
+# Plt.title('Maximum Temperature')
+# Plt.show()
 

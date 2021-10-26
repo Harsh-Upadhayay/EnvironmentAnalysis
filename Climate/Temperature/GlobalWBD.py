@@ -81,7 +81,8 @@ def TemperatureByStateWBD(country, stateTuple, dateStart = 1700, dateEnd = 2100)
 
     return df
 
-df = TemperatureByStateWBD('India', ['Assam', 'Goa', 'Delhi', 'Uttar pradesh'], 1989, 2010)
-df.plot(x = 'Date')
-plt.show()
-print(df)
+
+# df = TemperatureByStateWBD('India', ['Assam', 'Goa', 'Delhi', 'Uttar pradesh'], 1989, 2010)
+# df.plot(x = 'Date')
+# plt.show()
+# print(df)
