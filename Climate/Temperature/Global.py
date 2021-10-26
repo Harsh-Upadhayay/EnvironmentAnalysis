@@ -191,8 +191,8 @@ def get_City_Graph_By_CSV():
     File.close()
     print("Total Data of ",City , "is ",Citycount)
     print("Total Data for ",Month , "is",monthCount)
-    Plt.plot(Year , Temp ,linewidth = 2,markersize = 12)
-    Plt.show()
+    plt.plot(Year , Temp ,linewidth = 2,markersize = 12)
+    plt.show()
 
 
 def get_Temperature_Graph_By_CSV():
