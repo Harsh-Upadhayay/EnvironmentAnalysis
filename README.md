@@ -1,3 +1,8 @@
+## If you are downloading/cloning the repository for the first time, then after downloading/cloning extract the datasets.zip in the dataset folder. The directory structure of dataset should look something like this.
+![image](https://user-images.githubusercontent.com/82091385/138997228-b670bc55-15d1-4c29-a2fa-395dc7775eee.png)
+
+
+
 # EnvironmentAnalysis
 
 Third Semester IT-Workshop Project
