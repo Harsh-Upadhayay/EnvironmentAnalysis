@@ -1,3 +1,5 @@
+
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,6 +15,11 @@ months = {'January':'-01-', 'February':'-02-', 'March'    :'-03-',
 def __setCountriesMap():
     """
     Call only once
+    
+    Reads the file countriesCode.txt and creates a map between countries
+    name and their code used in the datasets. 
+    
+    The map is stored in countriesMap global variable.
     """
     global CountriesMap
     with open("datasets\WorldBankData\countriesCode.txt", "r") as file:
@@ -26,7 +33,17 @@ def __setCountriesMap():
 
 
 def TemperatureByCountryWBD(country, dateStart = 1700, dateEnd = 2100):
+    """
+    Parameter 
+    * country (REQUIRED) : Country who's data's to be fetched
+    * dateStart       : Starting date, if not specified then full data
+                        will be included.
+    * dateEnd         : Ending date, if not specified then last aviliable 
+                        date will be used.
 
+    Return value      : Dataframe containing temperature data of specified 
+                        country and it's states, within the specified bounds.
+    """
     global countriesMap
     if not countriesMap:
         __setCountriesMap()
@@ -37,7 +54,7 @@ def TemperatureByCountryWBD(country, dateStart = 1700, dateEnd = 2100):
     except:
         return 0
     
-    df.rename(columns={'Unnamed: 0':'Date'},inplace=True)
+    df.rename(columns={'Unnamed: 0': 'Date'},inplace=True)
 
     if 'Administrative unit not available' in df.columns:
         df.drop(['Administrative unit not available'], axis=1, inplace=True)
@@ -48,7 +65,22 @@ def TemperatureByCountryWBD(country, dateStart = 1700, dateEnd = 2100):
 
 
 def TemperatureByCountriesWBD(countryTuple, dateStart = 1700, dateEnd = 2100):
+    """
+    Parameter 
+    * countryTuple (REQUIRED) : Countries who's data's to be fetched
+    * dateStart               : Starting date, if not specified then full data
+                                will be included.
+    * dateEnd                 : Ending date, if not specified then last aviliable 
+                                date will be used.
     
+    This function internally calls the TemperatureByCountryWBD() function to fetch
+    data of each country in a dataframe. Then it drops all the column of dataframe
+    except for the country's temperature column, and then it merges the dataframes 
+    of all countries and returns it.
+
+    Return value              : Dataframe containing temperature data of specified 
+                                countries, within the specified bounds.
+    """    
     if isinstance(countryTuple, str):
         return TemperatureByCountryWBD(countryTuple, dateStart, dateEnd)
     
@@ -70,7 +102,18 @@ def TemperatureByCountriesWBD(countryTuple, dateStart = 1700, dateEnd = 2100):
 
 
 def TemperatureByStateWBD(country, stateTuple, dateStart = 1700, dateEnd = 2100):
-    
+    """
+    Parameter 
+    * country    (REQUIRED) : Country who's States are needed.
+    * stateTuple (REQUIRED) : States who's data is to be fetched.
+    * dateStart             : Starting date, if not specified then full data
+                              will be included.
+    * dateEnd               : Ending date, if not specified then last aviliable 
+                              date will be used.
+      
+    Return value            : Dataframe containing temperature data of specified 
+                              states, within the specified bounds.
+    """
     if isinstance(stateTuple, str):
         stateTuple = (stateTuple,)
     df = TemperatureByCountryWBD(country, dateStart, dateEnd)
