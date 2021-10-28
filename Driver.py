@@ -1,8 +1,15 @@
-from Climate.Temperature.USA import TemperatureAnalysisUS as analysis
+import Climate.Temperature.GlobalWBD  as globalWBD
+import Climate.Temperature.Global  as golbalKaggle
+import Climate.Temperature.USA as USA
+import Climate.Temperature.India as India
+
 import matplotlib.pyplot as plt
 
-df = analysis().citiesAnalysis(['NewYork', 'Seattle'], month='June', day=17)
-df.plot(x = 'Date')
+
+
+
+df = golbalKaggle.TemperaturesByState('Uttar Pradesh', 'January')
+df.plot('dt')
 
 plt.show()
 print(df)
