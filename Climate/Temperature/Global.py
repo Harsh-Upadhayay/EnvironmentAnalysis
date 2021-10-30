@@ -77,33 +77,34 @@ def TemperaturesByCity(cityTuple = ('Delhi' , 'Nagpur'), month = 'May', dateStar
 
     """
     # Function Description : 
-
-        This Function will take Tuple of City Names.\n
-        Function will take month Name as Input.\n
-        Function will take starting date of Dataset.\n
-        Function will take ending date of Dataset.\n
-        Returns Average Temperature of Cities as Pandas Dataframe.
+        
+        **Dataset used is of 22 mb so execution is faster.**
+        This Function will take Tuple of City Names.  
+        Function will take month Name as Input.  
+        Function will take starting date of Dataset.  
+        Function will take ending date of Dataset.  
+        Returns Average Temperature of Cities as Pandas Dataframe.  
 
     # Function Parameters : 
 
             # cityTuple : 
 
-                    This Parameter takes tuple of one or more cities.\n
+                    This Parameter takes tuple of one or more cities.  
                     Default is 
 
             # month : 
 
-                    This Parameter takes Full Name of Month.\n
+                    This Parameter takes Full Name of Month.  
                     Default is 'May'.
             
             # dateStart : 
 
-                    This Parameter takes Starting date of Dataset.\n
+                    This Parameter takes Starting date of Dataset.  
                     Default is '1800-01-01'.
 
             # dateEnd : 
 
-                    This Parameter takes Ending date of Dataset.\n
+                    This Parameter takes Ending date of Dataset.  
                     Default is '2010-01-01'.
     """
 
@@ -140,11 +141,12 @@ def TemperaturesByCity(cityTuple = ('Delhi' , 'Nagpur'), month = 'May', dateStar
     return retdf
 
 
-def TemperaturesBySpecificCity(cityTuple = ('Delhi' , 'Nagpur'), month = 'May', dateStart = '1800-01-01', dateEnd = '2010-01-01'):
+def TemperaturesBySpecificCity(cityTuple, month, dateStart = '1800-01-01', dateEnd = '2010-01-01'):
 
     """
     # Function Description : 
 
+        **Dataset used is of 550 mb so execution is significantly slower.**
         This Function will take Tuple of City Names.\n
         Function will take month Name as Input.\n
         Function will take starting date of Dataset.\n
@@ -234,11 +236,7 @@ def TemperaturesGlobally(month = 'May', dateStart = '1800-01-01', dateEnd = '201
     df = df[df['dt'].between(dateStart, dateEnd)]
 
     df = df[df['dt'].str.contains(months[month])]
-    # df.plot()
-    
-    # plt.yticks([10,20,30,40,50,60,70])
-    # plt.show()
-    # print(df)
+
     return df
 
 
@@ -251,9 +249,9 @@ def TemperatureByCountry(Country = ('India' , 'China'),  Month = 'May' , From_Da
     """"
     # Function Description : 
 
-        This Function Takes tuple of one or more Countries.\n
-        Function Takes Particular Month of a year.
-        Function takes Timeframe(From_Date , End-Date).
+        This Function Takes tuple of one or more Countries.  
+        Function Takes Particular Month of a year.  
+        Function takes Timeframe(From_Date , End-Date).  
 
     # Function Parameters : 
 
@@ -317,20 +315,20 @@ def TemperatureByCountry(Country = ('India' , 'China'),  Month = 'May' , From_Da
 def get_City_Graph_By_CSV(City = 'Delhi' , Month = 'May'):
     """
     # Function Description : 
-        This Function Takes City and Month as Input.\n
-        Returns List of Year and Temperature.\n
+        This Function Takes City and Month as Input.  
+        Returns List of Year and Temperature.  
         Can be Accessed as Year(List) , Temp(List) = get_City_Graph_By_CSV(City , Month).
 
     # Function Parameters : 
 
             # City : 
 
-                    This parameter Takes City Name.\n
-                    Default is 'Delhi'.
+                    This parameter Takes City Name.  
+                    Default is 'Delhi'.  
             
             # Month : 
 
-                    This Parameter takes Month Name as Input.\n
+                    This Parameter takes Month Name as Input.  
                     Default is 'May'.
     """
 
@@ -375,21 +373,21 @@ def get_Temperature_Graph_By_CSV(Country = 'India', Month = 'May'):
 
     """
     # Function Description : 
-        This Function takes Country Name and Month as Input.\n
-        Returns List of Year and Average Temperatrue.\n
-        Can be Accessed as Year(List) , Avg_Temperature(List) = get_Temperature_Graph_By_CSV(Country , Month).
+        This Function takes Country Name and Month as Input.  
+        Returns List of Year and Average Temperatrue.  
+        Can be Accessed as Year(List) , Avg_Temperature(List) = get_Temperature_Graph_By_CSV(Country , Month).  
 
     # Function Parameter : 
 
             # Country : 
 
-                    This Parameter takes Country Name as Input.\n
-                    Default is 'India'.
+                    This Parameter takes Country Name as Input.  
+                    Default is 'India'.  
 
             # Month : 
 
-                    This Parametre takes Month as Input.\n
-                    Default is 'May'.
+                    This Parametre takes Month as Input.  
+                    Default is 'May'.  
     """
 
     Dict = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
