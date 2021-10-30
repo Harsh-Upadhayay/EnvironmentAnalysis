@@ -52,7 +52,7 @@ def TemperatureByCountryWBD(country, dateStart = 1700, dateEnd = 2100):
         country = countriesMap[country]
         df = pd.read_csv(dataPath + country + '.csv', header=1)
     except:
-        return 0
+        return pd.DataFrame()
     
     df.rename(columns={'Unnamed: 0': 'Date'},inplace=True)
 
@@ -90,6 +90,8 @@ def TemperatureByCountriesWBD(countryTuple, dateStart = 1700, dateEnd = 2100):
  
     for country in countryTuple:
         cur_df = TemperatureByCountryWBD(country, dateStart, dateEnd)
+        if cur_df.empty:
+            continue
         cur_df.drop(cur_df.iloc[:, 2:], inplace = True, axis = 1)
 
         if firstIter:
