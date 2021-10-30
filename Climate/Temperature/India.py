@@ -3,7 +3,32 @@ import numpy as np
 import matplotlib.pyplot as Plt
 
 
-def Temperature_Analysis_India(Month = 'May',Start_Year = 1901 , End_Year = 2016):
+def Temperature_Analysis_India(Month = 'May',Start_Year = 1901 , End_Year = 2020):
+    """
+    * Function Description : 
+
+            Function returns Pandas Datframe of India for given Month.
+            You can start from year >= 1901 to any year <= 2020.
+
+    * Function Parameters :
+
+            Month : 
+
+                Full Name of Month is Required.
+                Months will be as ['January' , 'February' , 'March' , 'April' , 'May',
+                                 'June' , 'July' , 'August' , 'September' , 'October' , 'November' , 'December'].
+                Default is 'May'.
+        
+            Start_Year : 
+
+                Starting Year Parameter. 
+                Default is 1901 , you can take any year in range [1901 , 2020]
+        
+            End_Year : 
+
+                Ending Year Parameter. 
+                Default is 2020, you can take any Year [Start_Year , 2020].
+    """
     File = Pd.read_csv(r'datasets/Monthly_Max_Temp_IMD-1901_to_2019_0.csv')
     File = File[File.columns[0:13]]
     #print(File)
