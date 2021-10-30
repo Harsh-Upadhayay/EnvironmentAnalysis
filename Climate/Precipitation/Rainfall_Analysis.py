@@ -1,7 +1,6 @@
-from numpy.core.fromnumeric import cumsum
 import pandas as Pd
-import numpy as np
-import matplotlib.pyplot as Plt
+import numpy
+import matplotlib.pyplot
 
 Dict = {'Afghanistan': 'AFG', 'Albania': 'ALB', 'Algeria': 'DZA', 'American Samoa': 'ASM', 'Andorra': 'AND',
 'Angola': 'AGO', 'Anguilla': 'AIA', 'Antigua and Barbuda': 'ATG', 'Argentina': 'ARG', 'Armenia': 'ARM', 'Aruba': 'ABW',
@@ -50,6 +49,30 @@ Dict = {'Afghanistan': 'AFG', 'Albania': 'ALB', 'Algeria': 'DZA', 'American Samo
 
 def Analyse_Rain_Countries(Country = ['India','China'],Start_Year = 1901 , End_Year = 2020):
 
+    """
+    # Function Description : 
+
+        This Function will Take One or more Countries Name and TimeFrame(Start_Year , End_Year).\n
+        It Will return Pandas Dataframe of Average Annual Rainfall of Countries.
+
+    # Function Parameters : 
+
+            # Country : 
+
+                    This Parameter will take List of Country Names. Full Name of Country is Required.\n
+                    Default is ['India' , 'China']
+
+            # Start_Year : 
+
+                    Starting Year Parameter. \n
+                    Default is 1901 , you can take any year in range [1901 , 2020]
+
+            # End_Year : 
+
+                    Ending Year Parameter. \n
+                    Default is 2020, you can take any Year [Start_Year , 2020].
+    """
+
     Flag = 0
     Frame = Pd.DataFrame # Creating an object of pandas dataframe
 
@@ -79,7 +102,36 @@ def Analyse_Rain_Countries(Country = ['India','China'],Start_Year = 1901 , End_Y
 #######     Functonality for getting rainfall data for states of a given country
 
 def Analyse_Rain_State(Country = 'India' , State = ['Uttar Pradesh' , 'Madhya Pradesh'] , Start_Year = 1901 , End_Year = 2020):
-    # Reading the File Data 
+    """"
+    # Function Description : 
+
+        This Function Will Take Country Name.\n
+        It Will Take List of one or more States of Given Country and TimeFrame(Start_Year , End_Year) .\n
+        This Will Return Pandas DataFrame.
+
+    # Function Parametres : 
+
+            # Country : 
+
+                    This Parameter Will Take Country Name as Input . Full Name is Required.\n
+                    Default is 'India'.
+            
+            # State : 
+
+                    This Parameter will Take List of one or more States as Input.\n
+                    Default is ['Uttar Pradesh' , 'Madhya Pradesh'].
+
+            # Start_Year : 
+
+                    Starting Year Parameter. 
+                    Default is 1901 , you can take any year in range [1901 , 2020]
+
+            # End_Year : 
+
+                    Ending Year Parameter. 
+                    Default is 2020, you can take any Year [Start_Year , 2020].
+    """
+
     flag = 0
     Frame = Pd.DataFrame  # Creating an object of pandas dataframe
 
@@ -99,6 +151,10 @@ def Analyse_Rain_State(Country = 'India' , State = ['Uttar Pradesh' , 'Madhya Pr
 
 
 
+
+
+
+
 '''
 File = Analyse_Rain_Countries(['India','China'],1901 ,2020)
 
@@ -110,7 +166,7 @@ for plt in Plot:
     plt.axhline(y=File.iloc[:,Count].mean(), color='red',label = 'Mean')
     Count = Count + 1
 
-Plt.show()'''
+Plt.show()
 
 
 
@@ -122,4 +178,4 @@ Count = 1
 for plt in Plot:
     plt.axhline(y=File.iloc[:,Count].mean(), color='red',label = 'Mean')
     Count = Count + 1
-Plt.show()
+Plt.show()'''
