@@ -1,46 +1,32 @@
 import Climate.Temperature.GlobalWBD  as globalWBD
-import Climate.Temperature.Global  as golbalKaggle
+import Climate.Temperature.Global  as globalKaggle
 import Climate.Temperature.USA as USA
 import Climate.Temperature.India as India
 
 import matplotlib.pyplot as plt
 
 
+# print("GlobalWBD : ")
 
+# globalWBD.TemperatureByCountriesWBD(['India', 'China', 'Russia', 'United Kingdom'], dateEnd=1950).plot(x = 'Date')
+# globalWBD.TemperatureByCountryWBD('United Kingdom', dateEnd=1950).plot(x = 'Date')
+# globalWBD.TemperatureByStateWBD('India', ['Goa', 'Delhi'], dateEnd=1950).plot(x = 'Date')
+# plt.show()
 
-df = golbalKaggle.TemperaturesByState('Uttar Pradesh', 'January')
-df.plot('dt')
+# print("USA : ")
 
-plt.show()
-print(df)
+# USA.TemperatureAnalysisUS().cityAnalysis('NewYork', 'June', '01', dateEnd='2001').plot(x = 'Date')
+# USA.TemperatureAnalysisUS().citiesAnalysis(['NewYork', 'Seattle'], 'June', '01', dateEnd='2001').plot(x = 'Date')
+# plt.show()
 
+# print("Global : ")
 
-'''
-import Climate.Temperature.India as Analyze
-import Climate.Precipitation.Rainfall_Analysis as B
-import matplotlib.pyplot as Plt
+# globalKaggle.TemperatureByCountry(['Russia', 'United Kingdom'], Month='February', To_Date='1989').plot(x = 'Date')
+# globalKaggle.TemperaturesByCity(["Delhi", "Bombay"], 'January', dateStart='1900').plot(x = 'Date')
+# globalKaggle.TemperaturesByState(["Delhi", 'Bihar'],).plot(x = 'Date')
+# plt.show()
 
-import Climate.Temperature.Global as C
-'''
+# print("India : ")
 
-
-#df = Analyze.Temperature_Analysis_India()
-#df1 = B.Analyse_Rain_Countries()
-#df2 = B.Analyse_Rain_State()
-
-#df3 = C.TemperatureByCountry()
-#df4 = C.TemperaturesByCity()
-
-#df5 = C.TemperaturesBySpecificCity()
-#df6 = C.TemperaturesByState()
-
-#df7 = C.TemperaturesGlobally()
-
-#Year , Temp = C.get_City_Graph_By_CSV()
-#Year , Temp = C.get_Temperature_Graph_By_CSV()
-
-#Plt.plot(Year , Temp)
-
-#df1.plot(x = 'Year')
-#df.plot(x = 'Year')
-#Plt.show()
+# India.Temperature_Analysis_India('January').plot(x = 'Year')
+# plt.show()
