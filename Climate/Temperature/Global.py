@@ -70,6 +70,7 @@ def TemperaturesByState(stateTuple = ('Uttar Pradesh','Bihar'), month = 'May', d
         else:
             retdf = retdf.merge(cur_df)
 
+    retdf.rename(columns={'dt' : 'Date'}, inplace=True)
     return retdf
 
 
@@ -138,6 +139,7 @@ def TemperaturesByCity(cityTuple = ('Delhi' , 'Nagpur'), month = 'May', dateStar
         else:
             retdf = retdf.merge(cur_df)
 
+    retdf.rename(columns={'dt' : 'Date'}, inplace=True)
     return retdf
 
 
@@ -146,7 +148,7 @@ def TemperaturesBySpecificCity(cityTuple, month, dateStart = '1800-01-01', dateE
     """
     # Function Description : 
 
-        **Dataset used is of 550 mb so execution is significantly slower.**
+        **Dataset used is of 550 mb so execution is significantly slower.**\n  
         This Function will take Tuple of City Names.\n
         Function will take month Name as Input.\n
         Function will take starting date of Dataset.\n
@@ -199,6 +201,7 @@ def TemperaturesBySpecificCity(cityTuple, month, dateStart = '1800-01-01', dateE
         else:
             retdf = retdf.merge(cur_df)
 
+    retdf.rename(columns={'dt' : 'Date'}, inplace=True)
     return retdf
 
 
@@ -237,6 +240,7 @@ def TemperaturesGlobally(month = 'May', dateStart = '1800-01-01', dateEnd = '201
 
     df = df[df['dt'].str.contains(months[month])]
 
+    df.rename(columns={'dt' : 'Date'}, inplace=True)
     return df
 
 
