@@ -43,7 +43,28 @@ def kaggle_TA_Country(placeHolder, countries, month):
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
     
     df.plot(x = 'Date', subplots=False,  ylabel='Temperature in degree celsius', ax=ax)
+
+
+def kaggle_TA_CountryCSV(placeHolder, countries, month):
     
+    countries = countries.get().split(',')
+    idx = 0
+    for country in countries:
+        countries[idx] = country.strip()
+        idx += 1
+    try :
+        month = month.get()
+    except :
+        month = 'May'
+
+    Year, Avg_Temperature = globalKaggle.get_Temperature_Graph_By_CSV(countries, month)
+    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    ax = figure.add_subplot(111)
+    chart_type = FigureCanvasTkAgg(figure, placeHolder)
+    chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
+    
+    plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 8)    
+
 
 def kaggle_TA_State(placeHolder, states, month):
     
@@ -89,6 +110,28 @@ def kaggle_TA_Cities(placeHolder, cities, month):
     df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
     
 
+def kaggle_TA_CitiesCSV(placeHolder, cities, month):
+    
+    cities = cities.get().split(',')
+    idx = 0
+    for city in cities:
+        cities[idx] = city.strip()
+        idx += 1
+
+    try : 
+        month = month.get()
+    except : 
+        month = "May"
+
+    Year, Avg_Temperature = globalKaggle.get_City_Graph_By_CSV(cities, month)
+    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    ax = figure.add_subplot(111)
+    chart_type = FigureCanvasTkAgg(figure, placeHolder)
+    chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
+
+    plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 8)
+
+
 def countryBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
     try :    
         countryName = tkinter.StringVar()
@@ -109,8 +152,12 @@ def countryBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
         e2 = tkinter.Entry(f1, textvariable=month).grid(
             column=1, row=1, padx=8, pady=4)
 
-        b1 = tkinter.Button(f1, text="show", command=lambda : kaggle_TA_Country(placeHolder, countryName, month)).grid(
-            row=2, columnspan=2, pady=2)
+        b1 = tkinter.Button(f1, text="show using Pandas", command=lambda : kaggle_TA_Country(placeHolder, countryName, month)).grid(
+            column=0, row=2, columnspan=2, pady=2)
+            
+        b2 = tkinter.Button(f1, text="show using csv", command=lambda : kaggle_TA_CountryCSV(placeHolder, countryName, month)).grid(
+            column=1, row=2, columnspan=2, pady=2)
+            
     except :
         _msg()
 
@@ -161,8 +208,12 @@ def cityBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
         e2 = tkinter.Entry(f1, textvariable=month).grid(
             column=1, row=1, padx=8, pady=4)
 
-        b1 = tkinter.Button(f1, text="show", command=lambda : kaggle_TA_Cities(placeHolder, cityName, month)).grid(
-            row=2, columnspan=2, pady=2)
+        b1 = tkinter.Button(f1, text="show using Pandas", command=lambda : kaggle_TA_Cities(placeHolder, cityName, month)).grid(
+            column = 0, row=2, columnspan=2, pady=2)
+
+        b2 = tkinter.Button(f1, text="show using csv", command=lambda : kaggle_TA_CitiesCSV(placeHolder, cityName, month)).grid(
+            column = 1, row=2, columnspan=2, pady=2)
+
     except :
         _msg()
 
