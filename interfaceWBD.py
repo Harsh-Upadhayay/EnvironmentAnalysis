@@ -6,19 +6,6 @@ import tkinter
 from tkinter import ttk
 from tkinter import messagebox as msg
 
-win = tkinter.Tk()
-win.title("Python Mini Project")
-
-
-tabcontrol = ttk.Notebook(win)
-about = ttk.Frame(tabcontrol)
-tabcontrol.add(about, text="About")
-
-Tmp_analysis = ttk.Frame(tabcontrol)
-tabcontrol.add(Tmp_analysis, text="Temperature Analysis")
-
-tabcontrol.pack(expand=1, fill="both")
-
 
 def _msg():
     msg.showerror("Error", "Enter correct name!")
@@ -102,10 +89,26 @@ def countryBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
     except :
         _msg()
 
+def main():
+    win = tkinter.Tk()
+    win.title("Python Mini Project")
 
-countryBox(Tmp_analysis, "Country Analysis", "Enter Country Name", 0)
-countryBox(Tmp_analysis, "Countries Comparision", "Enter Countries Name (Comma Seperated)", 1)
-stateBox(Tmp_analysis, "State Analysis", "Enter State Name", 2)
-stateBox(Tmp_analysis, "States Comparision", "Enter States Name (Comma Seperated)", 3)
 
-win.mainloop()
+    tabcontrol = ttk.Notebook(win)
+    about = ttk.Frame(tabcontrol)
+    tabcontrol.add(about, text="About")
+
+    Tmp_analysis = ttk.Frame(tabcontrol)
+    tabcontrol.add(Tmp_analysis, text="Temperature Analysis")
+
+    tabcontrol.pack(expand=1, fill="both")
+
+    countryBox(Tmp_analysis, "Country Analysis", "Enter Country Name", 0)
+    countryBox(Tmp_analysis, "Countries Comparision", "Enter Countries Name (Comma Seperated)", 1)
+    stateBox(Tmp_analysis, "State Analysis", "Enter State Name", 2)
+    stateBox(Tmp_analysis, "States Comparision", "Enter States Name (Comma Seperated)", 3)
+
+    win.mainloop()
+
+if __name__ == "__main__":
+    main()

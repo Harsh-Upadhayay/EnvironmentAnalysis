@@ -6,19 +6,6 @@ import tkinter
 from tkinter import ttk
 from tkinter import messagebox as msg
 
-win = tkinter.Tk()
-win.title("Python Mini Project")
-
-
-tabcontrol = ttk.Notebook(win)
-about = ttk.Frame(tabcontrol)
-tabcontrol.add(about, text="About")
-
-Tmp_analysis = ttk.Frame(tabcontrol)
-tabcontrol.add(Tmp_analysis, text="Temperature Analysis")
-
-tabcontrol.pack(expand=1, fill="both")
-
 
 def _msg():
     msg.showerror("Error", "Enter correct name!")
@@ -84,7 +71,26 @@ def cityBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
     except :
         _msg()
 
-cityBox(Tmp_analysis, "City Analysis", "Enter city Name", 0)
-cityBox(Tmp_analysis, "Cities Comparision", "Enter cities Name (Comma Seperated)", 1)
 
-win.mainloop()
+def main():
+
+    win = tkinter.Tk()
+    win.title("Python Mini Project")
+
+
+    tabcontrol = ttk.Notebook(win)
+    about = ttk.Frame(tabcontrol)
+    tabcontrol.add(about, text="About")
+
+    Tmp_analysis = ttk.Frame(tabcontrol)
+    tabcontrol.add(Tmp_analysis, text="Temperature Analysis")
+
+    tabcontrol.pack(expand=1, fill="both")
+    cityBox(Tmp_analysis, "City Analysis", "Enter city Name", 0)
+    cityBox(Tmp_analysis, "Cities Comparision", "Enter cities Name (Comma Seperated)", 1)
+
+    win.mainloop()
+
+
+if __name__ == "__main__":
+    main()
