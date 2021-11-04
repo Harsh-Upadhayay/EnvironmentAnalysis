@@ -28,5 +28,9 @@ import matplotlib.pyplot as plt
 
 # print("India : ")
 
-# India.Temperature_Analysis_India('January').plot(x = 'Year')
-# plt.show()
+#India.Temperature_Analysis_India('January').plot(x = 'Year')
+#Df = globalKaggle.get_City_Graph_By_CSV(['Delhi','Nagpur','Bombay'],'June')
+#Df = globalKaggle.get_Temperature_Graph_By_CSV()
+#print(Df)
+#print(globalKaggle.TemperatureByCountry())
+#plt.show()

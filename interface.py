@@ -104,6 +104,7 @@ def main():
         
     win = tkinter.Tk()
     win.title("Python Mini Project")
+    win.attributes("-zoomed",True)
     style = ttk.Style()
     style.theme_settings
     ("default",
