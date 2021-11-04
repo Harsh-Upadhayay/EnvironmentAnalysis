@@ -44,13 +44,13 @@ def kaggle_TA_CountryCSV(placeHolder, countries, month):
     except :
         month = 'May'
 
-    Year, Avg_Temperature = globalKaggle.get_Temperature_Graph_By_CSV(countries, month)
+    Df = globalKaggle.get_Temperature_Graph_By_CSV(countries, month)
     figure = plt.Figure(figsize=(10, 6), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
     
-    plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 8)    
+    Df.plot( x = 'Year',linewidth = 2, markersize = 8)    
 
 
 def kaggle_TA_State(placeHolder, states, month):
@@ -110,13 +110,13 @@ def kaggle_TA_CitiesCSV(placeHolder, cities, month):
     except : 
         month = "May"
 
-    Year, Avg_Temperature = globalKaggle.get_City_Graph_By_CSV(cities, month)
+    Df = globalKaggle.get_City_Graph_By_CSV(cities, month)
+    print(Df)
     figure = plt.Figure(figsize=(10, 6), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
-
-    plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 8)
+    Df.plot(x = 'Year', linewidth = 2, markersize = 8,ax = ax)
 
 
 def countryBox(placeHolder, firstMessage, secondMessage, firstPos = 0):

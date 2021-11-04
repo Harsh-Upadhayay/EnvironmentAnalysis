@@ -316,7 +316,7 @@ def TemperatureByCountry(Country = ('India' , 'China'),  Month = 'May' , From_Da
 
 
 
-def get_City_Graph_By_CSV(City = 'Delhi' , Month = 'May'):
+def get_City_Graph_By_CSV(Cities = ['Delhi','Nagpur'] , Month = 'May'):
     """
     # Function Description : 
         This Function Takes City and Month as Input.  
@@ -335,42 +335,51 @@ def get_City_Graph_By_CSV(City = 'Delhi' , Month = 'May'):
                     This Parameter takes Month Name as Input.  
                     Default is 'May'.
     """
-
-
-    #City = input("Enter the City : ")
-    #print()
-    #Month = input("Enter the Month : ")
-    Dict = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
-            'July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
-    with open('datasets/GlobalLandTemperaturesByMajorCity.csv') as File:
-        File_Ptr = csv.reader(File)
-        Flag = 0
-        Year,Temp = [],[]
-        for Lst in File_Ptr:
-            if Flag == 0:
-                #print("Data for City ",City,"for Month ",Month,'is Give below')
-                Flag = 1
-            else:
-                if(City == Lst[3]):
-                    Str = Lst[0]
-                    Str1 = Dict[Month]
-                    if(Str1 == Str[5:7]):
-                        if(Lst[1] != ""):
-                            Year.append(int(Str[:4]))
-                            Temp.append(float(Lst[1]))
-                            #print("Date = ",Lst[0], "Avg_Temperature = ",Lst[1])
-                            #monthCount = monthCount + 1
-                    #Citycount = Citycount + 1
-                    #print(1)
-    File.close()
-    return Year , Temp
-    #print("Total Data of ",City , "is ",Citycount)
-    #print("Total Data for ",Month , "is",monthCount)
-    #plt.plot(Year , Temp ,linewidth = 2,markersize = 12)
+    New = pd.DataFrame
+    Sign = 1
+    for City in Cities:
+        #City = input("Enter the City : ")
+        #print()
+        #Month = input("Enter the Month : ")
+        Dict = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
+                'July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
+        with open('datasets/GlobalLandTemperaturesByMajorCity.csv') as File:
+            File_Ptr = csv.reader(File)
+            Flag = 0
+            Year,Temp = [],[]
+            for Lst in File_Ptr:
+                if Flag == 0:
+                    #print("Data for City ",City,"for Month ",Month,'is Give below')
+                    Flag = 1
+                else:
+                    if(City == Lst[3]):
+                        Str = Lst[0]
+                        Str1 = Dict[Month]
+                        if(Str1 == Str[5:7]):
+                            if(Lst[1] != ""):
+                                Year.append(int(Str[:4]))
+                                Temp.append(float(Lst[1]))
+                                #print("Date = ",Lst[0], "Avg_Temperature = ",Lst[1])
+                                #monthCount = monthCount + 1
+                        #Citycount = Citycount + 1
+                        #print(1)
+        File.close()
+        Df = pd.DataFrame(np.column_stack([Year , Temp]),columns = ['Year',City])
+        if Sign == 1:
+            New = Df
+            Sign = 0
+        else:
+            New = New.merge(Df)
+        New['Year'] = New['Year'].astype(int)
+    return New
+        
+        #print("Total Data of ",City , "is ",Citycount)
+        #print("Total Data for ",Month , "is",monthCount)
+        #plt.plot(Year , Temp ,linewidth = 2,markersize = 12)
     #plt.show()
 
 
-def get_Temperature_Graph_By_CSV(Country = 'India', Month = 'May'):
+def get_Temperature_Graph_By_CSV(Countries = ['India','China'], Month = 'May'):
     #Country = input("Enter the Country : ")
     #print()
     #Month = input("Enter the Month : ")
@@ -394,34 +403,45 @@ def get_Temperature_Graph_By_CSV(Country = 'India', Month = 'May'):
                     Default is 'May'.  
     """
 
-    Dict = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
-            'July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
-    with open('datasets/GlobalLandTemperaturesByCountry.csv') as File:
-        File_Ptr = csv.reader(File)
-        Count  = 0
-        Year , Avg_Temperature = [],[]
-        for Lst in File_Ptr:
-            if Count == 0:
-                #print("Data for the Month",Month, "is given below")
-                Count = 1
-            else:
-                Str = Lst[0]
-                if(Lst[3] == Country):
-                    Month_Code = Dict[Month]
-                    if(Str[5:7] == Month_Code):
-                        if(Lst[1] != ""):
-                            Year.append(int(Str[:4]))
-                            Avg_Temperature.append(float(Lst[1]))
-                            #print("Date = ",Lst[0]," : Average_Temperature = ",Lst[1]," : Uncertainty = ",Lst[2]," : Country = ",Lst[3])
-                            #Cmonth = Cmonth + 1
-                    Count = Count + 1
-        #print("Total Data of Month ",Month, "is ",Cmonth)
-        #print("Total Data of ",Country,"is ",Count)
-    File.close()
-    return Year , Avg_Temperature
-    #plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 8)
-    #plt.show()
+    New = pd.DataFrame
+    Sign = 1
+    for Country in Countries:
 
+        Dict = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06',
+                'July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
+        with open('datasets/GlobalLandTemperaturesByCountry.csv') as File:
+            File_Ptr = csv.reader(File)
+            Count  = 0
+            Year , Avg_Temperature = [],[]
+            for Lst in File_Ptr:
+                if Count == 0:
+                    #print("Data for the Month",Month, "is given below")
+                    Count = 1
+                else:
+                    Str = Lst[0]
+                    if(Lst[3] == Country):
+                        Month_Code = Dict[Month]
+                        if(Str[5:7] == Month_Code):
+                            if(Lst[1] != ""):
+                                Year.append(int(Str[:4]))
+                                Avg_Temperature.append(float(Lst[1]))
+                                #print("Date = ",Lst[0]," : Average_Temperature = ",Lst[1]," : Uncertainty = ",Lst[2]," : Country = ",Lst[3])
+                                #Cmonth = Cmonth + 1
+                        Count = Count + 1
+            #print("Total Data of Month ",Month, "is ",Cmonth)
+            #print("Total Data of ",Country,"is ",Count)
+        File.close()
+        Df = pd.DataFrame(np.column_stack([Year , Avg_Temperature]),columns = ['Year',Country])
+        if Sign == 1:
+            New = Df
+            Sign = 0
+        else:
+            New = New.merge(Df)
+        New['Year'] = New['Year'].astype(int)
+    return New
+        
+        #plt.plot(Year, Avg_Temperature, 'go--', linewidth = 2, markersize = 8)
+        #plt.show()
 
 
 
