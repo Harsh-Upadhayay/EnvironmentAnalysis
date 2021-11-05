@@ -28,15 +28,15 @@ def About(notebook):
     para2_3 = tkinter.Label(frame2, text="Matplotlib : Data Representation").grid(
         column=0, row=2, sticky=tkinter.W, padx=10, pady=10)
     para2_4 = tkinter.Label(frame2, text="CSV : File Handling").grid(
-        column=0, row=2, sticky=tkinter.W, padx=10, pady=10)
-    para2_4 = tkinter.Label(frame2, text="Pyautogui : GUI Automation").grid(
         column=0, row=3, sticky=tkinter.W, padx=10, pady=10)
-    para2_4 = tkinter.Label(frame2, text="Selenium : Browser Automation").grid(
+    para2_4 = tkinter.Label(frame2, text="Pyautogui : GUI Automation").grid(
         column=0, row=4, sticky=tkinter.W, padx=10, pady=10)
-    para2_4 = tkinter.Label(frame2, text="Tkinter : Python GUI").grid(
+    para2_4 = tkinter.Label(frame2, text="Selenium : Browser Automation").grid(
         column=0, row=5, sticky=tkinter.W, padx=10, pady=10)
-    para2_4 = tkinter.Label(frame2, text="Exception Handling").grid(
+    para2_4 = tkinter.Label(frame2, text="Tkinter : Python GUI").grid(
         column=0, row=6, sticky=tkinter.W, padx=10, pady=10)
+    para2_4 = tkinter.Label(frame2, text="Exception Handling").grid(
+        column=0, row=7, sticky=tkinter.W, padx=10, pady=10)
 
     frame3 = tkinter.LabelFrame(AbtFrame, text="Participants or Group info")
     frame3.grid(column=0, row=2, padx=8, pady=4)
