@@ -59,7 +59,7 @@ def Temp(notebook):
 def TempNotebook(Tempframe):
     Tempframe.pack(expand=True, fill='both')
     GlobalNotebook = tkinter.Frame(Tempframe)
-    Tempframe.add(GlobalNotebook, text="Global_Corrupted_Dataset")
+    Tempframe.add(GlobalNotebook, text="Global_Kaggle_Dataset")
 
     interfaceGlobal.countryBox(GlobalNotebook, "Countries Comparision", "Enter Countries Name (Comma Seperated)", 0)
     interfaceGlobal.stateBox(GlobalNotebook, "States Comparision", "Enter States Name (Comma Seperated)", 1)

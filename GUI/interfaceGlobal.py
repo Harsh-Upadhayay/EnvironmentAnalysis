@@ -6,6 +6,7 @@ import tkinter
 from tkinter import ttk
 from tkinter import messagebox as msg
 
+import GUI.Smooth_Temperature as Smooth
 
 def _msg():
     msg.showerror("Error", "Enter correct name!")
@@ -29,7 +30,8 @@ def kaggle_TA_Country(placeHolder, countries, month):
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
     
-    df.plot(x = 'Date', subplots=False,  ylabel='Temperature in degree celsius', ax=ax)
+    #df.plot(x = 'Date', subplots=False,  ylabel='Temperature in degree celsius', ax=ax)
+    Smooth.Get_Graph_Temperature_SubTrue_Global(df , ax)
 
 
 def kaggle_TA_CountryCSV(placeHolder, countries, month):
@@ -50,7 +52,8 @@ def kaggle_TA_CountryCSV(placeHolder, countries, month):
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
     
-    Df.plot( x = 'Year',linewidth = 2, markersize = 8)    
+    #Df.plot( x = 'Year',linewidth = 2, markersize = 8)  
+    Smooth.Get_Graph_Temperature_SubTrue_Global_Csv(Df , ax)  
 
 
 def kaggle_TA_State(placeHolder, states, month):
@@ -72,7 +75,8 @@ def kaggle_TA_State(placeHolder, states, month):
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
-    df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
+    #df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
+    Smooth.Get_Graph_Temperature_SubTrue_Global(df , ax)
     
 
 def kaggle_TA_Cities(placeHolder, cities, month):
@@ -94,7 +98,8 @@ def kaggle_TA_Cities(placeHolder, cities, month):
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
-    df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
+    #df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
+    Smooth.Get_Graph_Temperature_SubTrue_Global(df , ax)
     
 
 def kaggle_TA_CitiesCSV(placeHolder, cities, month):
@@ -111,12 +116,13 @@ def kaggle_TA_CitiesCSV(placeHolder, cities, month):
         month = "May"
 
     Df = globalKaggle.get_City_Graph_By_CSV(cities, month)
-    print(Df)
+    #print(Df)
     figure = plt.Figure(figsize=(10, 6), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
-    Df.plot(x = 'Year', linewidth = 2, markersize = 8,ax = ax)
+    #Df.plot(x = 'Year', linewidth = 2, markersize = 8,ax = ax)
+    Smooth.Get_Graph_Temperature_SubTrue_Global_Csv(Df , ax)
 
 
 def countryBox(placeHolder, firstMessage, secondMessage, firstPos = 0):

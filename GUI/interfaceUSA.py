@@ -5,7 +5,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox as msg
-
+import GUI.Smooth_Temperature as Smooth
 
 def _msg():
     msg.showerror("Error", "Enter correct name!")
@@ -36,7 +36,8 @@ def USA_TA_City(placeHolder, cities, month, day):
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
-    df.plot(x = 'Date', subplots=subplotsCondition,  ylabel='Temperature in degree celsius', ax=ax)
+    #df.plot(x = 'Date', subplots=subplotsCondition,  ylabel='Temperature in degree celsius', ax=ax)
+    Smooth.Get_Graph_Temperature_SubTrue_Global(df , ax)
     
 
 def cityBox(placeHolder, firstMessage, secondMessage, firstPos = 0):

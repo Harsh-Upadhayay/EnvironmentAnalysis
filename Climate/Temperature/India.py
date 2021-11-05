@@ -31,13 +31,21 @@ def Temperature_Analysis_India(Month = 'May',Start_Year = 1901 , End_Year = 2020
     """
     
     File = Pd.read_csv(r'datasets/Monthly_Max_Temp_IMD-1901_to_2019_0.csv')
+    File1 = Pd.read_csv(r'datasets/Monthly_Mean_Temp_IMD-2901_to_2019_0.csv')
     File = File[File.columns[0:13]]
+    File1 = File1[File1.columns[0:13]]
     #print(File)
-    File.columns = ['Year','January','February','March','April','May','June','July','August',
-                    'September','October','November','December']
+    File.columns = ['Year','January-Max','February-Max','March-Max','April-Max','May-Max','June-Max','July-Max','August-Max',
+                    'September-Max','October-Max','November-Max','December-Max']
+    File1.columns = ['Year','January-Mean','February-Mean','March-Mean','April-Mean','May-Mean','June-Mean','July-Mean','August-Mean',
+                    'September-Mean','October-Mean','November-Mean','December-Mean']
     #print(File)
     File = File[(File['Year'] >= Start_Year) & (File['Year'] <= End_Year)]
-    File = File[['Year',Month]]
+    File1 = File1[(File1['Year'] >= Start_Year) & (File['Year'] <= End_Year)]
+    File = File[['Year',Month + '-Max']]
+    File1 = File1[['Year' , Month + '-Mean']]
+
+    File = File.merge(File1)
     #print(File)
     return File 
 

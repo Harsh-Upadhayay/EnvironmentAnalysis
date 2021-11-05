@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter
 from tkinter import messagebox as msg
-
+import GUI.Smooth_Rainfall as PLOT
 
 
 def _msg():
@@ -22,8 +22,9 @@ def rainfall_by_country(Frame, country_name, st_year):
         chart_type = FigureCanvasTkAgg(figure, Frame)
         chart_type.get_tk_widget().grid(
             column=0, row=1, columnspan=4)
-        df.plot(x='Year', title='Annual Rainfall in MM',
-                ylabel='Rainfall in MM', ax=ax)
+        #df.plot(x='Year', title='Annual Rainfall in MM',ylabel='Rainfall in MM', ax=ax)
+        PLOT.Get_Graph_Rainfall(df , ax)
+        
     except:
         _msg()
 
@@ -42,8 +43,9 @@ def rainfall_by_state(Frame,Country_for_state, state_name, year):
         chart_type = FigureCanvasTkAgg(figure, Frame)
         chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
-        df.plot(x='Year', title='Annual Rainfall in MM',
-                ylabel='Rainfall in MM', ax=ax)
+        #df.plot(x='Year', title='Annual Rainfall in MM',ylabel='Rainfall in MM', ax=ax)
+        PLOT.Get_Graph_Rainfall(df , ax)
+        
     except:
         _msg()
         return 0
@@ -60,8 +62,9 @@ def rainfall_by_country_comparison(Frame, country_name1, country_name2, s_year):
         chart_type = FigureCanvasTkAgg(figure, Frame)
         chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
-        df.plot(x='Year', color='blue', marker='o', linestyle='dashed', linewidth=2, markersize=12,
-                subplots=True, title='Annual Rainfall in MM',  ylabel='Rainfall in MM', ax=ax)
+        #df.plot(x='Year', color='blue', marker='o', linestyle='dashed', linewidth=2, markersize=12,
+                #subplots=True, title='Annual Rainfall in MM',  ylabel='Rainfall in MM', ax=ax)
+        PLOT.Get_Graph_Rainfall_SubTrue(df , ax)
     except:
         _msg()
         return 0
@@ -79,8 +82,9 @@ def rainfall_by_state_comparison(Frame,country_for_states, state_name1, state_na
         chart_type = FigureCanvasTkAgg(figure, Frame)
         chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
-        df.plot(x='Year', color='blue', marker='o', linestyle='dashed', linewidth=2, markersize=12,
-                subplots=True, title='Annual Rainfall in MM',  ylabel='Rainfall in MM', ax=ax)
+        #df.plot(x='Year', color='blue', marker='o', linestyle='dashed', linewidth=2, 
+        # markersize=12,subplots=True, title='Annual Rainfall in MM',  ylabel='Rainfall in MM', ax=ax)
+        PLOT.Get_Graph_Rainfall_SubTrue(df , ax)
     except:
         _msg()
         return 0
