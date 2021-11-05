@@ -6,6 +6,7 @@ import tkinter
 from tkinter import ttk
 from tkinter import messagebox as msg
 
+import GUI.Smooth_Temperature as Smooth
 
 def _msg():
     msg.showerror("Error", "Enter correct name!")
@@ -23,7 +24,8 @@ def India_TA(placeHolder, month):
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
     
-    df.plot(x = 'Year', subplots=False,  ylabel='Temperature in degree celsius', ax=ax)
+    #df.plot(x = 'Year', subplots=False,  ylabel='Temperature in degree celsius', ax=ax)
+    Smooth.Get_Graph_Temperature_India(df , ax)
     
 
 def IndiaBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
