@@ -22,7 +22,7 @@ def __setCountriesMap():
     The map is stored in countriesMap global variable.
     """
     global CountriesMap
-    with open("datasets\WorldBankData\countriesCode.txt", "r") as file:
+    with open("datasets/WorldBankData/countriesCode.txt", "r") as file:
         data = file.readlines()
         for line in data:
                 word = line.split('^^^^^')
