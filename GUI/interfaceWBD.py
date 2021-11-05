@@ -29,7 +29,7 @@ def WBD_TA_Country(placeHolder, countries):
         chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
         #df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
-        Smooth.Get_Graph_Temperature(df , ax)
+        Smooth.Get_Graph_Temperature_SubTrue(df , ax)
     except:
         _msg()
         return 0
@@ -50,7 +50,7 @@ def WBD_TA_State(placeHolder, country, states):
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
     #df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
-    Smooth.Get_Graph_Temperature(df , ax)
+    Smooth.Get_Graph_Temperature_SubTrue(df , ax)
     
     
 
