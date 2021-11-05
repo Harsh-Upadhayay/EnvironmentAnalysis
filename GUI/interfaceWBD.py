@@ -6,26 +6,33 @@ import tkinter
 from tkinter import ttk
 from tkinter import messagebox as msg
 
+import GUI.Smooth_Temperature as Smooth
+
 
 def _msg():
     msg.showerror("Error", "Enter correct name!")
 
 
 def WBD_TA_Country(placeHolder, countries):
-    
-    countries = countries.get().split(',')
-    idx = 0
-    for country in countries:
-        countries[idx] = country.strip()
-        idx += 1
 
-    df = globalWBD.TemperatureByCountriesWBD(countries)
-    figure = plt.Figure(figsize=(10, 6), dpi=100)
-    ax = figure.add_subplot(111)
-    chart_type = FigureCanvasTkAgg(figure, placeHolder)
-    chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
+    try :
+        countries = countries.get().split(',')
+        idx = 0
+        for country in countries:
+            countries[idx] = country.strip()
+            idx += 1
 
-    df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
+        df = globalWBD.TemperatureByCountriesWBD(countries)
+        figure = plt.Figure(figsize=(10, 6), dpi=100)
+        ax = figure.add_subplot(111)
+        chart_type = FigureCanvasTkAgg(figure, placeHolder)
+        chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
+
+        #df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
+        Smooth.Get_Graph_Temperature(df , ax)
+    except:
+        _msg()
+        return 0
     
 
 def WBD_TA_State(placeHolder, country, states):
@@ -42,7 +49,9 @@ def WBD_TA_State(placeHolder, country, states):
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
 
-    df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
+    #df.plot(x = 'Date', subplots=True,  ylabel='Temperature in degree celsius', ax=ax)
+    Smooth.Get_Graph_Temperature(df , ax)
+    
     
 
 def stateBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
