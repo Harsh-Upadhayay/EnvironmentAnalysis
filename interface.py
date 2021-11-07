@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import ttk
+from typing import Sized
 
 from GUI import interfaceGlobal
 from GUI import interfaceRain
