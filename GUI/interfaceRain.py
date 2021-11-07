@@ -94,19 +94,19 @@ def rainfall_by_state_comparison(Frame,country_for_states, state_name1, state_na
 def countryBox(Frame):
     country_name = tkinter.StringVar()
     st_year = tkinter.IntVar()
-    f1 = tkinter.LabelFrame(Frame, text="Analysis by country")
+    f1 = tkinter.LabelFrame(Frame, text="Analysis by country",bg='honeydew2',font=("Courier",14))
     f1.grid(column=0, row=0, padx=8, pady=2)
 
-    l1 = tkinter.Label(f1, text="Enter Country Name :").grid(
+    l1 = tkinter.Label(f1, text="Enter Country Name :",bg='honeydew2',font=("dongle", 10)).grid(
         column=0, row=0, padx=8, pady=4)
 
     e1 = tkinter.Entry(f1, textvariable=country_name).grid(
         column=1, row=0, padx=8, pady=4)
-    scale_label = tkinter.Label(f1, text="Select Year ").grid(
+    scale_label = tkinter.Label(f1, text="Select Year ",bg='honeydew2',font=("dongle", 10)).grid(
         row=1, column=0, columnspan=3)
     s1 = tkinter.Scale(f1, from_=1901, to=2020, orient=tkinter.HORIZONTAL, variable=st_year).grid(
         row=2, columnspan=3)
-    b1 = tkinter.Button(f1, text="show", command=lambda : rainfall_by_country(Frame, country_name, st_year)).grid(
+    b1 = tkinter.Button(f1, text="show", command=lambda : rainfall_by_country(Frame, country_name, st_year),bg='goldenrod1').grid(
         row=3, columnspan=3, pady=2)
 
 
@@ -116,24 +116,24 @@ def countriesBox(Frame):
     country_name2 = tkinter.StringVar()
     s_year = tkinter.IntVar()
 
-    f2 = tkinter.LabelFrame(Frame, text="Compare countries")
+    f2 = tkinter.LabelFrame(Frame, text="Compare countries",bg='honeydew2',font=("Courier",14))
     f2.grid(column=1, row=0, padx=8, pady=2)
 
-    l1_1 = tkinter.Label(f2, text="Enter First Country Name :").grid(
+    l1_1 = tkinter.Label(f2, text="Enter First Country Name :",bg='honeydew2',font=("dongle", 10)).grid(
         column=0, row=0, padx=8, pady=4)
 
     e1_1 = tkinter.Entry(f2, textvariable=country_name1).grid(
         column=1, row=0, padx=8, pady=4)
 
-    l2_1 = tkinter.Label(f2, text="Enter Second Country Name :").grid(
+    l2_1 = tkinter.Label(f2, text="Enter Second Country Name :",bg='honeydew2',font=("dongle", 10)).grid(
         column=0, row=1, padx=8, pady=4)
 
     e2_1 = tkinter.Entry(f2, textvariable=country_name2).grid(
         column=1, row=1, padx=8, pady=4)
-    scale1_label = tkinter.Label(f2, text="Start Year").grid(row=2, columnspan=2)
+    scale1_label = tkinter.Label(f2, text="Select Year",bg='honeydew2').grid(row=2, columnspan=2)
     s2 = tkinter.Scale(f2, from_=1901, to=2020, orient=tkinter.HORIZONTAL,
                 variable=s_year).grid(row=3, columnspan=2)
-    b2 = tkinter.Button(f2, text="show", command=lambda : rainfall_by_country_comparison(Frame, country_name1, country_name2, s_year)).grid(
+    b2 = tkinter.Button(f2, text="show", command=lambda : rainfall_by_country_comparison(Frame, country_name1, country_name2, s_year),bg='goldenrod1').grid(
         row=4, columnspan=2, pady=2)
 
 
@@ -143,27 +143,27 @@ def stateBox(Frame):
     Country_for_state = tkinter.StringVar()
     year = tkinter.IntVar()
 
-    f3 = tkinter.LabelFrame(Frame, text="Analysis by State")
+    f3 = tkinter.LabelFrame(Frame, text="Analysis by State",bg='honeydew2',font=("Courier",14))
     f3.grid(column=2, row=0, padx=8, pady=2)
 
-    l_c = tkinter.Label(f3, text="Enter Country Name:").grid(
+    l_c = tkinter.Label(f3, text="Enter Country Name:",bg='honeydew2',font=("dongle", 10)).grid(
         column=0, row=0, padx=8, pady=4)
 
     e_c = tkinter.Entry(f3, textvariable=Country_for_state).grid(
         column=1, row=0, padx=8, pady=4)
 
-    l3 = tkinter.Label(f3, text="Enter State Name :").grid(
+    l3 = tkinter.Label(f3, text="Enter State Name :",bg='honeydew2',font=("dongle", 10)).grid(
         column=0, row=1, padx=8, pady=4)
 
     e3 = tkinter.Entry(f3, textvariable=state_name).grid(
         column=1, row=1, padx=8, pady=4)
 
-    y_label = tkinter.Label(f3, text="Start Year").grid(row=2, columnspan=2)
+    y_label = tkinter.Label(f3, text="Select Year",bg='honeydew2',font=("dongle", 10)).grid(row=2, columnspan=2)
 
     Y_scale = tkinter.Scale(f3, from_=1901, to=2020, orient=tkinter.HORIZONTAL,
                     variable=year).grid(row=3, columnspan=2)
 
-    b3 = tkinter.Button(f3, text="show", command=lambda: rainfall_by_state(Frame,Country_for_state, state_name, year)).grid(
+    b3 = tkinter.Button(f3, text="show", command=lambda: rainfall_by_state(Frame,Country_for_state, state_name, year),bg='goldenrod1').grid(
         row=4, columnspan=2, pady=2)
 
 
@@ -174,31 +174,31 @@ def statesBox(Frame):
     state_name2 = tkinter.StringVar()
     Y_for_state = tkinter.IntVar()
 
-    f4 = tkinter.LabelFrame(Frame, text="Compare states")
+    f4 = tkinter.LabelFrame(Frame, text="Compare states",bg='honeydew2',font=("Courier",14))
     f4.grid(column=3, row=0, padx=8, pady=2)
 
-    l_c_1 = tkinter.Label(f4, text="Enter Country Name:").grid(
+    l_c_1 = tkinter.Label(f4, text="Enter Country Name:",bg='honeydew2',font=("dongle", 10)).grid(
         column=0, row=0, padx=8, pady=4)
 
     e_c_1 = tkinter.Entry(f4, textvariable=country_for_states).grid(
         column=1, row=0, padx=8, pady=4)
 
-    l3_1 = tkinter.Label(f4, text="Enter First State Name :").grid(
+    l3_1 = tkinter.Label(f4, text="Enter First State Name :",bg='honeydew2',font=("dongle", 10)).grid(
         column=0, row=1, padx=8, pady=4)
 
     e3_1 = tkinter.Entry(f4, textvariable=state_name1).grid(
         column=1, row=1, padx=8, pady=4)
 
-    l3_1 = tkinter.Label(f4, text="Enter Second State Name :").grid(
+    l3_1 = tkinter.Label(f4, text="Enter Second State Name :",bg='honeydew2',font=("dongle", 10)).grid(
         column=0, row=2, padx=8, pady=4)
 
     e3_1 = tkinter.Entry(f4, textvariable=state_name2).grid(
         column=1, row=2, padx=8, pady=4)
 
-    state_s_label = tkinter.Label(f4, text="Start Year").grid(row=3, columnspan=2)
+    state_label = tkinter.Label(f4, text="Select Year",bg='honeydew2',font=("dongle", 10)).grid(row=3, columnspan=2)
     state_scale = tkinter.Scale(f4, from_=1901, to=2020, orient=tkinter.HORIZONTAL,
-                        variable=Y_for_state).grid(row=3, columnspan=2)
+                        variable=Y_for_state).grid(row=4, columnspan=2)
 
-    b4 = tkinter.Button(f4, text="show", command=lambda : rainfall_by_state_comparison(Frame,country_for_states, state_name1, state_name2, Y_for_state)).grid(
-        row=4, columnspan=2, pady=2)
+    b4 = tkinter.Button(f4, text="show", command=lambda : rainfall_by_state_comparison(Frame,country_for_states, state_name1, state_name2, Y_for_state),bg='goldenrod1').grid(
+        row=5, columnspan=2, pady=2)
 
