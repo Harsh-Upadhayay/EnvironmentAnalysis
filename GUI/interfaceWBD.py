@@ -1,3 +1,4 @@
+from tkinter import font
 import Climate.Temperature.GlobalWBD  as globalWBD
 
 import matplotlib.pyplot as plt
@@ -59,41 +60,42 @@ def stateBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
         stateName = tkinter.StringVar()
         countryName = tkinter.StringVar()
 
-        f1 = tkinter.LabelFrame(placeHolder, text=firstMessage)
-        f1.grid(column=firstPos, row=0, padx=8, pady=2)
+        f1 = tkinter.LabelFrame(placeHolder, text=firstMessage,font=("Courier",14),bg='honeydew2')
+        f1.grid(column=firstPos, row=0, padx=4, pady=2)
 
-        l1 = tkinter.Label(f1, text="Enter Country Name ").grid(
-            column=0, row=0, padx=8, pady=4)
+        l1 = tkinter.Label(f1, text="Enter Country Name ",bg='honeydew2',font=("dongle", 10)).grid(
+            column=0, row=0, padx=4, pady=4)
 
         e1 = tkinter.Entry(f1, textvariable=countryName).grid(
-            column=1, row=0, padx=8, pady=4)
+            column=1, row=0, padx=4, pady=4)
 
-        l2 = tkinter.Label(f1, text=secondMessage).grid(
-            column=0, row=1, padx=8, pady=4)
+        l2 = tkinter.Label(f1, text=secondMessage,bg='honeydew2',font=("dongle", 10)).grid(
+            column=0, row=1, padx=4, pady=4)
 
         e2 = tkinter.Entry(f1, textvariable=stateName).grid(
-            column=1, row=1, padx=8, pady=4)
+            column=1, row=1, padx=4, pady=4)
 
-        b1 = tkinter.Button(f1, text="show", command=lambda : WBD_TA_State(placeHolder, countryName, stateName)).grid(
+        b1 = tkinter.Button(f1, text="show", command=lambda : WBD_TA_State(placeHolder, countryName, stateName),bg='goldenrod1').grid(
             row=2, columnspan=2, pady=2)
     except :
         _msg()
+
 
 
 def countryBox(placeHolder, firstMessage, secondMessage, firstPos = 0):
     try :    
         countryName = tkinter.StringVar()
 
-        f1 = tkinter.LabelFrame(placeHolder, text=firstMessage)
-        f1.grid(column=firstPos, row=0, padx=8, pady=2)
+        f1 = tkinter.LabelFrame(placeHolder, text=firstMessage,font=("Courier",14),bg='honeydew2')
+        f1.grid(column=firstPos, row=0, padx=4, pady=2)
 
-        l1 = tkinter.Label(f1, text=secondMessage).grid(
-            column=0, row=0, padx=8, pady=4)
+        l1 = tkinter.Label(f1, text=secondMessage,bg='honeydew2',font=("dongle", 10)).grid(
+            column=0, row=0, padx=4, pady=4)
 
         e1 = tkinter.Entry(f1, textvariable=countryName).grid(
-            column=1, row=0, padx=8, pady=4)
+            column=1, row=0, padx=4, pady=4)
 
-        b1 = tkinter.Button(f1, text="show", command=lambda : WBD_TA_Country(placeHolder, countryName)).grid(
+        b1 = tkinter.Button(f1, text="show", command=lambda : WBD_TA_Country(placeHolder, countryName),bg='goldenrod1').grid(
             row=1, columnspan=2, pady=2)
     except :
         _msg()
