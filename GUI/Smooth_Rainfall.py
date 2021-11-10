@@ -16,7 +16,7 @@ def Get_Graph_Rainfall(Dataframe, ax):
     Plot.plot(Arr[0], Smoothed, color='green', label='Smoothed')
     y_mean = [np.mean(Arr[1])]*len(Arr[0])
     Plot.plot(Arr[0], y_mean, label='Mean', color='orange')
-    legend = Plot.legend(loc='upper right')
+    legend = Plot.legend(loc='upper left')
     plt.show()
 
 
@@ -28,7 +28,7 @@ def Get_Graph_Rainfall_SubTrue(Dataframe, ax):
     #PLt.plot(Arr[0], Smoothed , color='green',label = 'Smoothed')
     #y_mean = [np.mean(Arr[1])]*len(Arr[0])
     #PLt.plot(Arr[0] , y_mean , label = 'Mean', color = 'orange')
-    #legend = PLt.legend(loc='upper right')
+    #legend = PLt.legend(loc='upper left')
 
     Count = 1
     for Plot in PLt:
@@ -40,6 +40,6 @@ def Get_Graph_Rainfall_SubTrue(Dataframe, ax):
         Plot.plot(Arr[0], Smoothed, color='green', label='Smoothed')
         y_mean = [np.mean(Arr[1])]*len(Arr[0])
         Plot.plot(Arr[0], y_mean, label='Mean', color='orange')
-        legend = Plot.legend(loc='upper right')
+        legend = Plot.legend(loc='upper left')
         Count = Count + 1
     plt.show()
