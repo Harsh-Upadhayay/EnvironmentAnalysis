@@ -94,7 +94,7 @@ as mentioned in upcoming slides
 import Climate.Temperature.Global as global
 global.TemperatureByCountry()
 ```
-![width:1100px height:420px](2021-11-09-23-23-07.png)
+![](tbycountry.png)
 
 
 ---
@@ -105,7 +105,7 @@ global.TemperatureByCountry()
 import Climate.Temperature.Global as global
 global.TemperaturesGlobally()
 ```
-![width:1100px height:420px](2021-11-10-08-01-38.png)
+![](tglobally.png)
 
 
 
@@ -118,7 +118,7 @@ global.TemperaturesGlobally()
 import Climate.Temperature.Global as global
 global.TemperaturesByState()
 ```
-![width:1100px height:400px](2021-11-10-08-04-16.png)
+![width:1100px height:400px](tbystate.png)
 
 
 
@@ -133,7 +133,7 @@ global.TemperaturesByState()
 import Climate.Temperature.Global as global
 global.TemperaturesByCity()
 ```  
-![width:1100px height:420px](2021-11-10-08-16-05.png)
+![](tbycity.png)
 
 
 ---
@@ -148,7 +148,7 @@ global.TemperaturesByCity()
 import Climate.Temperature.Global as global
 global.TemperaturesBySpecificCity()
 ```
-![width:1100px height:420px](2021-11-10-08-36-08.png)
+![](tbySpecific.png)
 
 ---
 
@@ -163,7 +163,7 @@ global.TemperaturesBySpecificCity()
 import Climate.Temperature.Global as global
 global.get_City_Graph_By_CSV()
 ```
-![width:1100px height:420px](2021-11-10-08-37-57.png)
+![](defgetgraphcsv.png)
 
 ---
 
@@ -178,7 +178,7 @@ global.get_City_Graph_By_CSV()
 import Climate.Temperature.Global as global
 global.get_Temperature_Graph_By_CSV()
 ```
-![width:1100px height:420px](2021-11-10-08-40-25.png)
+![](tmpgraphbycsvcountry.png)
 
 ---
 
@@ -262,7 +262,7 @@ import Climate.Temperature.India as india
 india.Temperature_Analysis_India()
 ```
 
-![width:1100px height:420px](2021-11-10-08-59-51.png)
+![](taindia.png)
 
 ---
 
@@ -356,7 +356,7 @@ import Climate.Precipitation.Rainfall_Analysis as Rain
 Rain.Analyse_Rain_Countries()
 ```
 
-![width:1100px height:420px](2021-11-10-09-46-26.png)
+![](raincountry.png)
 
 ---
 
@@ -373,7 +373,7 @@ Rain.Analyse_Rain_Countries()
 import Climate.Precipitation.Rainfall_Analysis as Rain
 Rain.Analyse_Rain_State()
 ```
-![width:1100px height:420px](2021-11-10-09-49-10.png)
+![](rainstate.png)
 
 
 
