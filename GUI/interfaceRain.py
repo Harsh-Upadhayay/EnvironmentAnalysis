@@ -18,7 +18,7 @@ def rainfall_by_country(Frame, country_name, st_year, en_year):
         start_year = st_year.get()
         End_year = en_year.get()
         df = RainAnalysis.Analyse_Rain_Countries(country, start_year, End_year)
-        figure = plt.Figure(figsize=(10, 6), facecolor='white')
+        figure = plt.Figure(figsize=(12, 5), facecolor='white')
         ax = figure.add_subplot(111)
         chart_type = FigureCanvasTkAgg(figure, Frame)
         chart_type.get_tk_widget().grid(
@@ -39,7 +39,7 @@ def rainfall_by_state(Frame, Country_for_state, state_name, year1, year2):
         y1 = year1.get()
         y2 = year2.get()
         df = RainAnalysis.Analyse_Rain_State(country_for_state, state, y1, y2)
-        figure = plt.Figure(figsize=(10, 6), facecolor='white')
+        figure = plt.Figure(figsize=(12, 5), facecolor='white')
         ax = figure.add_subplot(111)
         chart_type = FigureCanvasTkAgg(figure, Frame)
         chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
@@ -60,7 +60,7 @@ def rainfall_by_country_comparison(Frame, country_name1, country_name2, s_year, 
         y2 = e_year.get()
         df = RainAnalysis.Analyse_Rain_Countries(
             [country_1, country_2], y1, y2)
-        figure = plt.Figure(figsize=(10, 6), dpi=100)
+        figure = plt.Figure(figsize=(12, 5), dpi=100)
         ax = figure.add_subplot(111)
         chart_type = FigureCanvasTkAgg(figure, Frame)
         chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
@@ -82,7 +82,7 @@ def rainfall_by_state_comparison(Frame, country_for_states, state_name1, state_n
         y2 = Y2.get()
         df = RainAnalysis.Analyse_Rain_State(
             country_f_s, [state_1, state_2], y1, y2)
-        figure = plt.Figure(figsize=(10, 6), dpi=100)
+        figure = plt.Figure(figsize=(12, 5), dpi=100)
         ax = figure.add_subplot(111)
         chart_type = FigureCanvasTkAgg(figure, Frame)
         chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)

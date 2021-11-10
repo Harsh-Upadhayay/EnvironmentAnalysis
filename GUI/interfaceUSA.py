@@ -34,7 +34,7 @@ def USA_TA_City(placeHolder, cities, month, day, s_year, e_year):
         day = 0
 
     df = USA().citiesAnalysis(cities, month, day, str(sy)+'-01-01', str(ey)+'-01-01')
-    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    figure = plt.Figure(figsize=(14, 4.5), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)

@@ -29,7 +29,7 @@ def kaggle_TA_Country(placeHolder, countries, month, s_year, e_year):
 
     df = globalKaggle.TemperatureByCountry(
         countries, month, str(s)+'-01-01', str(e)+'-01-01')
-    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    figure = plt.Figure(figsize=(12, 5), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
@@ -52,7 +52,7 @@ def kaggle_TA_CountryCSV(placeHolder, countries, month):
 
     Df = globalKaggle.get_Temperature_Graph_By_CSV(
         countries, month)
-    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    figure = plt.Figure(figsize=(12, 5), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
@@ -78,7 +78,7 @@ def kaggle_TA_State(placeHolder, states, month, s_year, e_year):
 
     df = globalKaggle.TemperaturesByState(
         states, month, str(s)+'-01-01', str(e)+'-01-01')
-    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    figure = plt.Figure(figsize=(12, 5), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
@@ -104,7 +104,7 @@ def kaggle_TA_Cities(placeHolder, cities, month, s_year, e_year):
 
     df = globalKaggle.TemperaturesByCity(
         cities, month, str(s)+'-01-01', str(e)+'-01-01')
-    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    figure = plt.Figure(figsize=(12, 5), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
@@ -128,7 +128,7 @@ def kaggle_TA_CitiesCSV(placeHolder, cities, month):
 
     Df = globalKaggle.get_City_Graph_By_CSV(cities, month)
     # print(Df)
-    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    figure = plt.Figure(figsize=(12, 5), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)

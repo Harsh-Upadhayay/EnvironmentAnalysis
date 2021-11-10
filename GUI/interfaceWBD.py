@@ -26,7 +26,7 @@ def WBD_TA_Country(placeHolder, countries, s_year, e_year):
             idx += 1
 
         df = globalWBD.TemperatureByCountriesWBD(countries, s, e)
-        figure = plt.Figure(figsize=(10, 6), dpi=100)
+        figure = plt.Figure(figsize=(12, 5), dpi=100)
         ax = figure.add_subplot(111)
         chart_type = FigureCanvasTkAgg(figure, placeHolder)
         chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
@@ -49,7 +49,7 @@ def WBD_TA_State(placeHolder, country, states, s_year, e_year):
         idx += 1
 
     df = globalWBD.TemperatureByStateWBD(country.get(), states, sy, ey)
-    figure = plt.Figure(figsize=(10, 6), dpi=100)
+    figure = plt.Figure(figsize=(12, 5), dpi=100)
     ax = figure.add_subplot(111)
     chart_type = FigureCanvasTkAgg(figure, placeHolder)
     chart_type.get_tk_widget().grid(column=0, row=1, columnspan=4)
