@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter
 from tkinter import messagebox as msg
-import GUI.Smooth_Rainfall as PLOT
+import Graph.Smooth_Rainfall as PLOT
 
 
 def _msg():
