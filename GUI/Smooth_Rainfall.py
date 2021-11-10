@@ -11,7 +11,7 @@ def Get_Graph_Rainfall(Dataframe, ax):
     Arr = np.array([list(Dataframe['Year']), list(
         Dataframe[Dataframe.columns[1]])])
     Smoothed = savgol_filter(
-        Arr[1], window_length=3, polyorder=1, mode='interp')
+        Arr[1], window_length=47, polyorder=3, mode='interp')
 
     Plot.plot(Arr[0], Smoothed, color='green', label='Smoothed')
     y_mean = [np.mean(Arr[1])]*len(Arr[0])
@@ -35,7 +35,7 @@ def Get_Graph_Rainfall_SubTrue(Dataframe, ax):
         Arr = np.array([list(Dataframe['Year']), list(
             Dataframe[Dataframe.columns[Count]])])
         Smoothed = np.ared = savgol_filter(
-            Arr[1], window_length=3, polyorder=1, mode='interp')
+            Arr[1], window_length=47, polyorder=3, mode='interp')
 
         Plot.plot(Arr[0], Smoothed, color='green', label='Smoothed')
         y_mean = [np.mean(Arr[1])]*len(Arr[0])

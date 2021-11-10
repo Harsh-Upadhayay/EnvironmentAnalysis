@@ -99,6 +99,26 @@ def rainfall_by_state_comparison(Frame, country_for_states, state_name1, state_n
 def countryBox(Frame):
     country_name = tkinter.StringVar()
     st_year = tkinter.IntVar()
+    f1 = tkinter.LabelFrame(Frame, text="Analysis by country")
+    f1.grid(column=0, row=0, padx=8, pady=2)
+
+    l1 = tkinter.Label(f1, text="Enter Country Name :").grid(
+        column=0, row=0, padx=8, pady=4)
+
+    e1 = tkinter.Entry(f1, textvariable=country_name).grid(
+        column=1, row=0, padx=8, pady=4)
+    scale_label = tkinter.Label(f1, text="Select Year ").grid(
+        row=1, column=0, columnspan=3)
+    s1 = tkinter.Scale(f1, from_=1901, to=2020, orient=tkinter.HORIZONTAL, variable=st_year).grid(
+        row=2, columnspan=3)
+    b1 = tkinter.Button(f1, text="show", command=lambda: rainfall_by_country(Frame, country_name, st_year)).grid(
+        row=3, columnspan=3, pady=2)
+
+
+# Single Country
+def countryBox(Frame):
+    country_name = tkinter.StringVar()
+    st_year = tkinter.IntVar()
     en_year = tkinter.IntVar()
     f1 = tkinter.LabelFrame(
         Frame, text="Analysis by country")
@@ -115,7 +135,7 @@ def countryBox(Frame):
         row=2, column=0)
     scale_label_2 = tkinter.Label(f1, text="To Year ").grid(
         row=1, column=1)
-    s1_2 = tkinter.Scale(f1, from_=1902, to=2020, orient=tkinter.HORIZONTAL, variable=en_year).grid(
+    s1_2 = tkinter.Scale(f1, from_=1950, to=2020, orient=tkinter.HORIZONTAL, variable=en_year).grid(
         row=2, column=1)
     b1 = tkinter.Button(f1, text="show", command=lambda: rainfall_by_country(Frame, country_name, st_year, en_year)).grid(
         row=3, columnspan=3, pady=2)
@@ -148,7 +168,7 @@ def countriesBox(Frame):
                        variable=s_year).grid(row=3, column=0)
     scale1_label_2 = tkinter.Label(
         f2, text="To Year").grid(row=2, column=1)
-    s2_2 = tkinter.Scale(f2, from_=1902, to=2020, orient=tkinter.HORIZONTAL,
+    s2_2 = tkinter.Scale(f2, from_=1950, to=2020, orient=tkinter.HORIZONTAL,
                          variable=e_year).grid(row=3, column=1)
     b2 = tkinter.Button(f2, text="show", command=lambda: rainfall_by_country_comparison(Frame, country_name1, country_name2, s_year, e_year)).grid(
         row=4, columnspan=2, pady=2)
@@ -182,7 +202,7 @@ def stateBox(Frame):
                             variable=year1).grid(row=3, column=0)
     y_label = tkinter.Label(f3, text="To Year").grid(row=2, column=1)
 
-    Y_scale = tkinter.Scale(f3, from_=1902, to=2020, orient=tkinter.HORIZONTAL,
+    Y_scale = tkinter.Scale(f3, from_=1950, to=2020, orient=tkinter.HORIZONTAL,
                             variable=year2).grid(row=3, column=1)
 
     b3 = tkinter.Button(f3, text="show",  command=lambda: rainfall_by_state(Frame, Country_for_state, state_name, year1, year2)).grid(
@@ -224,7 +244,7 @@ def statesBox(Frame):
                                 variable=Y1).grid(row=4, column=0)
     state_s_label = tkinter.Label(
         f4, text="To Year").grid(row=3, column=1)
-    state_scale = tkinter.Scale(f4, from_=1902, to=2020, orient=tkinter.HORIZONTAL,
+    state_scale = tkinter.Scale(f4, from_=1950, to=2020, orient=tkinter.HORIZONTAL,
                                 variable=Y2).grid(row=4, column=1)
     b4 = tkinter.Button(f4, text="show", command=lambda: rainfall_by_state_comparison(Frame, country_for_states, state_name1, state_name2, Y1, Y2)).grid(
         row=5, columnspan=2, pady=2)
