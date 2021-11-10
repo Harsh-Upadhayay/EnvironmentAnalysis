@@ -6,7 +6,7 @@ import tkinter
 from tkinter import ttk
 from tkinter import messagebox as msg
 
-import GUI.Smooth_Temperature as Smooth
+import Graph.Smooth_Temperature as Smooth
 
 
 def _msg():

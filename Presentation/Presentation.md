@@ -4,25 +4,27 @@ theme: uncover
 paginate: true
 image :
 ---
-# Climate Analysis portal
+## Climate Analysis portal
 
-+ This Portal Analyzes the Change in Temperture and Rainfall Patterns of World , Countries , States , Cities.Also Compare them.
++ This Portal Analyzes the Change in Temperture and Rainfall Patterns of World , Countries , States ,Cities.
+
++ Also Compare them.
 
 * Created by 
-    + Harsh Upadhyay
-    + Ayush Chauraisa
-    + Niraj Matare
-    + Prathmesh patil
-    + Harsh Tripathi
+    + [Harsh Upadhayay](https://github.com/Harsh-Upadhayay)
+    + [Ayush Chauraisa](https://github.com/Er-Ayush)
+    + [Niraj Matare](https://github.com/nirajmatere)
+    + [Prathmesh patil](https://github.com/prathameshpatil2002)
+    + [Harsh Tripathi](https://github.com/Harsh324)
 
 ---
-# Github
-One Can Use Portal on Your system . Program is uploaded in github
+## Github
+One Can Use Portal on Your system . Program is uploaded on github
 
 You can go to Github [Github_Repository](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis)
 
 ---
-# Datsets 
+## Datasets 
 
 + Data is Taken from different Sources 
     * [Climate_KnowledgePortal_Dataset](https://climateknowledgeportal.worldbank.org/watershed/161/climate-data-historical)
@@ -35,8 +37,8 @@ You can go to Github [Github_Repository](https://github.com/Harsh-Upadhayay/Envi
 
 ---
 
-# Module Climate
-## Hierarchy is as  shown 
+## Module [Climate](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate)
+### Hierarchy is as  shown 
 
 ```
 Climate
@@ -51,7 +53,7 @@ Climate
 
 ---
 
-# Calling Module [Climate](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate)
+## Calling Module [Climate](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate)
 
 ```py
 import Climate
@@ -61,7 +63,7 @@ import Climate
     * [Precipitation](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Precipitation) Module
 ---
 
-# Calling Temperature module from Climate
+## Calling [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) module from [Climate](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate) Module
 
 ```py
 import Climate.Temperature
@@ -73,13 +75,14 @@ import Climate.Temperature
     * [USA](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Temperature/USA.py)
 ---
 
-# From [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) Module Importing [Global](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Temperature/Global.py) Module
+## From [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) Module Importing [Global](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Temperature/Global.py) Module
 
 + Can be called as ,
 ```py
 import Climate.Temperature.Global as global
 ```
-+ This Module contains 6 Functions
++ This Module contains 6 Functions 
+as mentioned in upcoming slides
 
 ---
 
@@ -182,7 +185,7 @@ global.get_Temperature_Graph_By_CSV()
 
 
 
-# From [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) importing [GlobalWBD](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Temperature/GlobalWBD.py) Module
+## From [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) importing [GlobalWBD](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Temperature/GlobalWBD.py) Module
 
 + Can be called as ,
 
@@ -191,6 +194,7 @@ import Climate.Temperature.GlobalWBD as globaWBD
 ```
 
 * This Module Contains 3 Functions
+as Mentioned in upcoming slides.
 
 ---
 
@@ -239,7 +243,7 @@ globalWBD.TemperatureByStateWBD()
 
 
 
-# From [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) importing [India](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Temperature/India.py) Module
+## From [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) importing [India](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Temperature/India.py) Module
 
 + Module can be called as , 
 
@@ -265,7 +269,7 @@ india.Temperature_Analysis_India()
 
 
 
-# From [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) Importing [USA]() Module
+## From [Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Temperature) Importing [USA](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Temperature/USA.py) Module
 
 ```py
 import Climate.Temperature.USA as usa
@@ -309,7 +313,7 @@ usa.citiesAnalysis()
 
 
 
-# Calling [Precipitation](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Precipitation) Module from [Climate](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate)
+## Calling [Precipitation](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Precipitation) Module from [Climate](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate)
 
 + Module can be called as , 
 
@@ -322,8 +326,10 @@ import Climate.Precipitation
 
 
 
+
+
 ---
-# From [Precipitation]() import [Rainfall_Analysis]() module
+## From [Precipitation](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Climate/Precipitation) import [Rainfall_Analysis](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Precipitation/Rainfall_Analysis.py) module
 
 + Can be called as , 
 
@@ -332,7 +338,11 @@ import Climate.Precipitation.Rainfall_Analysis as Rain
 ```
 
 * This Module contains 2 Functions 
+as Mentioned in upcoming slides.
+
 ---
+
+
 
 
 
@@ -353,6 +363,8 @@ Rain.Analyse_Rain_Countries()
 
 
 
+
+
 * Function [Analyse_Rain_State()](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Climate/Precipitation/Rainfall_Analysis.py#L104)
 
 + Can be called as , 
@@ -368,7 +380,7 @@ Rain.Analyse_Rain_State()
 
 
 ---
-# Module [GUI](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/GUI)
+## Module [GUI](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/GUI)
 
 * Moduel can be Imported as , 
 ```py
@@ -382,7 +394,11 @@ import GUI
 
 ---
 
-# Hierarchy of [GUI](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/GUI) Module
+
+
+
+
+## Hierarchy of [GUI](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/GUI) Module
 
 ```
 GUI
@@ -391,14 +407,18 @@ GUI
 ├── interfaceRain/py
 ├── interfaceUSA.py
 ├── interfaceWBD.py
-├── Smooth_Rainfall.py
-└── Smooth_Temperature.py
+
 
 ```
-
+* Module [GUI](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/GUI) Contains 4 Modules
+as Mentioned in upcoming slides.
 ---
 
-# Module [interfaceGlobal](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceGlobal.py)
+
+
+
+
+## Module [interfaceGlobal](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceGlobal.py)
 
 + Module can be imported as , 
 ```py
@@ -416,7 +436,7 @@ import GUI.interfaceGlobal as Interfaceglobal
     + [kaggle_TA_CitiesCSV()](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceGlobal.py#L116)
 
 ---
-# Module [interfaceIndia](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceIndia.py)
+## Module [interfaceIndia](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceIndia.py)
 
 + Module can be imported as , 
 ```py
@@ -429,7 +449,7 @@ import GUI.interfaceIndia as Interfaceindia
 
 ---
 
-# Module [interfaceRain](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceRain.py)
+## Module [interfaceRain](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceRain.py)
 
 + Module can be imported as , 
 ```py
@@ -448,7 +468,7 @@ import GUI.interfaceRain as InterfaceRain
 
 
 
-# Module [interfaceUSA](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceUSA.py)
+## Module [interfaceUSA](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceUSA.py)
 
 + Module can be imported as , 
 ```py
@@ -463,7 +483,7 @@ import GUI.interfaceUSA as InterfaceUSA
 
 
 
-# Module [interfaceWBD](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceWBD.py)
+## Module [interfaceWBD](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceWBD.py)
 
 + Module can be imported as , 
 ```py
@@ -481,37 +501,94 @@ import GUI.interfaceWBD as InterfaceWBD
 
 
 ---
-# Module [Smooth_Rainfall](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Rainfall.py)
 
 
-* This Module is for Graphs
-* Using Matplotlib.pyplot graph is made
-* Graph is smoothed using Scipy library
+
+
+
+## Module [Graph](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/tree/main/Graph)
++ Can be called as 
+    ```py
+    import Graph
+    ```
+
+* This Module is for Plotting Graph of our Program
+* This Module Contains two Modules
+    + [Smooth_Rainfall](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Graph/Smooth_Rainfall.py)
+
+    + [Smooth_Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/Graph/Smooth_Temperature.py)
+
 ---
+
+
+
+
+
+* Module [Smooth_Rainfall](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Rainfall.py)
+
+    + This Module can be called as ,
+    ```py
+    import Graph.Smooth_Rainfall as Smooth
+    ```
+
+    * This Module is for Graphs
+    * Using Matplotlib.pyplot graph is made
+    * Graph is smoothed using Scipy library
+---
+
+
+
+
+
+
 
 * Functions of [Smooth_Rainfall](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Rainfall.py)
 
     + [Get_Graph_Rainfall](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Rainfall.py#L7)
+        + Function can be called as ,
+            ```py
+            import Graph.Smooth_Rainfall as Smooth
+            Smooth.Get_Graph_Rainfall()
+            ```
 
     + [Get_Graph_Rainfall_SubTrue](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Rainfall.py#L23)
 
----
-# Module[Smooth_Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Temperature.py)
-
-* This Module can be called as , 
-```py
-import GUI.Smooth_Temperature as smooth
-```
-* This Module has functions for Plotting graphs
-* Using Matplotlib library graph is made
-* Smmothing of Graph is done by Scipy Library
+        + Function can be called as ,
+            ```py
+            import Graph.Smooth_Rainfall as Smooth
+            Smooth.Get_Graph_Rainfall_SubTrue()
+            ```
 
 ---
-* Functions of [Smooth_Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Temperature.py) are ,
+
+
+
+
+
+
++ Module[Smooth_Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Temperature.py)
+
+    * This Module can be called as , 
+    ```py
+    import GUI.Smooth_Temperature as smooth
+    ```
+    + This Module has functions for Plotting graphs
+    + Graph is made using Matplotlib , Scipy library 
+    + Smoothing of Graph is done by Scipy Library
+
+---
+* Functions of [Smooth_Temperature](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Temperature.py)
 
     + [Get_Graph_Temperature_India()](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Temperature.py#L8)
 
+        + Function can be called as ,
+        ```py
+        import Graph.Smooth_Rainfall as Smooth
+        Smooth.Get_Graph_Temperature_India()
+        ```
+
     + [Get_Graph_Temperature_SubTrue()](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Temperature.py#L34)
+
 
     + [Get_Graph_Temperature_SubTrue_Global()](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/Smooth_Temperature.py#L54)
 
@@ -520,12 +597,12 @@ import GUI.Smooth_Temperature as smooth
 ---
 
 
-# Using the Portal
+## Using the Portal
 * Interface is Created using tkinter library
 
 * Driver Function for the Interface is [Interface.py](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/interface.py)
 
-* This Function Drives the tkinter mainLoop
+* This Function launches the tkinter mainLoop
 
 ---
 # Thank you
