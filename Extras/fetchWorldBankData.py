@@ -8,7 +8,7 @@ xTab, yTab = 400, 10
 
 while 1:
     try:
-        xRoot, yRoot = pt.locateCenterOnScreen(r"Extras\baseLocn.png")
+        xRoot, yRoot = pt.locateCenterOnScreen(r"Extras\baseLocn.png", confidence=0.7)
         pt.doubleClick(xRoot, yRoot)
         pt.press('tab')
         pt.press('down')
