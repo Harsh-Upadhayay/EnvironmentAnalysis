@@ -1,11 +1,21 @@
 {
     "cSpell.words": [
+        "defgetgraphcsv",
+        "Interfaceglobal",
+        "Interfaceindia",
         "padx",
         "pady",
         "prcp",
+        "raincountry",
+        "rainstate",
         "retdf",
+        "taindia",
+        "tbycity",
+        "tbystate",
+        "tglobally",
         "tmax",
         "tmin",
+        "tmpgraphbycsvcountry",
         "ylabel"
     ]
 }
