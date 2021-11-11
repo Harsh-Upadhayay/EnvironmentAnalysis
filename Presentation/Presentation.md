@@ -479,7 +479,7 @@ import GUI.interfaceUSA as InterfaceUSA
     + [USA_TA_City](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceUSA.py#L15)
 
     + [cityBox](https://github.com/Harsh-Upadhayay/EnviornmentAnalysis/blob/main/GUI/interfaceUSA.py#L46)
-
+ 
 ---
 
 
