@@ -15,6 +15,7 @@ Third Semester IT-Workshop Project
 - [ ] 6). Concentration of greenhouse gasses over period of time ex Co2 , So2 , N2O etc .  
 - [x] 7). Smoothing the data so that a clear trend is visible.  
 - [ ] 8). Inference as per trends in our data.
+- [] 9). Resume this project.
 
 ## Steps to do after downloading for the first time
 
