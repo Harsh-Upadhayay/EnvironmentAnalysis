@@ -1,5 +1,4 @@
 import pyautogui as pt
-import pyperclip as pp
 import time 
 
 

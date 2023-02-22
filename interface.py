@@ -1,10 +1,5 @@
-from ctypes import alignment, sizeof
 import tkinter
-from tkinter import Canvas, Label, Listbox, Scrollbar, ttk, font
-from tkinter.constants import CENTER
-from typing import Text
-
-from scipy.ndimage.measurements import label
+from tkinter import ttk, font
 
 from GUI import interfaceGlobal
 from GUI import interfaceRain
@@ -13,7 +8,6 @@ from GUI import interfaceWBD
 from GUI import interfaceUSA
 
 # About Tab
-
 
 def About(notebook):
     AbtFrame = tkinter.Frame(notebook, bg='skyblue')
@@ -108,7 +102,6 @@ def Rain(notebook):
 
 # Participants Tab
 
-
 def Info(notebook):
     info = tkinter.Frame(notebook, background='skyblue')
     notebook.add(info, text="Participants")
@@ -134,10 +127,6 @@ def main():
     win = tkinter.Tk()
     win.title("Python Mini Project")
     win.state('zoomed')
-
-    # label=Label(text="Python Mini Project : Climate Change Analysis",font=("Noto Serif",17),bg='khaki')
-    # label.pack()
-    # win.configure(background='gray55')
 
     style = ttk.Style()
     style.theme_settings
